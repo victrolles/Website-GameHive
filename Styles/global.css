@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    color: #333;
+    font-family: 'Poppins', sans-serif; /* change la police de base pour mettre Poppins*/
+    font-size: 1.6rem;                  /* 1.6rem = 16px : taille standard Google Chrome*/
+    
+    max-width: 1500px;                  /* limite la largeur du site à 1500px */
+    margin: 0 auto;
+}
+
+a {                                     /* change la couleur des liens et enlève la soulignement du lien*/   
+    text-decoration: none;
+    color: #333
+}
+
+/* Classes globales */
+
+.list-unstyled {                        /* enlève les puces des listes et reset le padding /margin*/
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.d-flex {                               /* permet d'appliquer flex à un bloc (div) */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.grid {                                 /* permet d'appliquer grid à un bloc (div) */
+    display: grid;
+    justify-content: center;
+}
+
+.wrapper {
+    justify-content: left;
+    align-items: start;
+}
+
+
+.avatar img {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+}
+
+.friends__lists__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid #000000;
+}

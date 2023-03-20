@@ -1,0 +1,15 @@
+<script>
+            function displayMessages() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("message-list").innerHTML = this.responseText;
+                }
+                };
+                xhttp.open("GET", "php/display_messages.php", true);
+                xhttp.send();
+            }
+
+            // Call the displayMessages() function to load the messages when the page is loaded
+            displayMessages();
+            </script>
