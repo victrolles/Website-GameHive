@@ -22,7 +22,7 @@ if (isset($_SESSION["id_friend"])){
             $img_upload_path = NULL;
         }
         $message = mysqli_real_escape_string($conn, $_POST["message"]);
-        $sql = "INSERT INTO message (id_sender, id_receiver, text, image) VALUES ('$id_profil', '$id_friend', '$message', '$img_upload_path')";
+        $sql = "INSERT INTO message (id_sender, id_receiver, text, image, vu) VALUES ('$id_profil', '$id_friend', '$message', '$img_upload_path', 0)";
         $conn->query($sql);
     }
 }

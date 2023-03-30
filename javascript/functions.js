@@ -1,12 +1,13 @@
 function connectToFriend(id_friend) {
   
   // Send an AJAX request to execute the ConnectFriend function with the given id_friend
+  console.log("connecting to friend with id: " + id_friend);
   var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      console.log(this.responseText);
-    }
-  };
+  // xhttp.onreadystatechange = function() {
+  //   if (this.readyState == 4 && this.status == 200) {
+  //     console.log(this.responseText);
+  //   }
+  // };
   xhttp.open("POST", "php/connectionWithFriend.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send("id_friend=" + id_friend);
@@ -90,6 +91,7 @@ function connectToFriend(id_friend) {
   }
 
   window.searchFriends = searchFriends;
+  window.displayMessage = displayMessage;
   window.sendMessage = sendMessage;
 
   document.addEventListener("DOMContentLoaded", function() {

@@ -2,6 +2,7 @@
 session_start();
 ?>
 <script src='javascript/functions.js'></script>
+<script src='javascript/checkStatut.js'></script>
 
 <?php 
 include_once "php/database.php";
@@ -60,7 +61,6 @@ if (CheckLogin()==true){
                 <div class="content">
                     <div id="message-list"></div>
                     <div class="message-send">
-                        <!-- <form onsubmit="return sendMessage(event); sendMessage(event);" enctype="multipart/form-data"> -->
                         <form id="message-form" enctype="multipart/form-data">
                             <input type="file" id="img" name="picture" accept="image/png, image/jpeg"><br>
                             <input type="text" id="msg" name="message" placeholder="message">
