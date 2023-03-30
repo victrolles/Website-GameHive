@@ -186,51 +186,53 @@ function ConnectToReciever($id_profil_receiver) {
   }
 }
 
-function Send(){
-  global $conn;
+// function Send(){
+//   global $conn;
+//   echo "Send function<br>";
 
-  if (isset($_POST["send"])){
-    if (isset($_SESSION["id_friend"])){
-        $id_friend = $_SESSION["id_friend"];
-        $id_profil = GetIdFromPseudo();
-        if (isset($_POST["message"]) && !empty($_POST["message"])){
-
-
-          if (isset($_FILES["picture"])) {
-            echo "Image trouvée<br>";
-          } else {
-            echo "Image non trouvée<br>";
-          }
-          if (isset($_FILES["picture"]['name']) && !empty($_FILES["picture"]['name'])){
-            $img_name = $_FILES['picture']['name'];
-            $tmp_name = $_FILES['picture']['tmp_name'];
-            $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
-            $img_ex_to_lc = strtolower($img_ex);
-            $extensions = ["jpeg", "png", "jpg"];
-            if(in_array($img_ex_to_lc, $extensions)){
-              $new_img_name = uniqid("IMG-", true).'.'.$img_ex_to_lc;
-              $img_upload_path = 'images/messages/'.$new_img_name;
-              move_uploaded_file($tmp_name, $img_upload_path);
-            }
-          } else {
-            $img_upload_path = NULL;
-          }
+//     echo "Send button pressed<br>";
+//     if (isset($_SESSION["id_friend"])){
+//         echo"Session id_friend set<br>";
+//         $id_friend = $_SESSION["id_friend"];
+//         $id_profil = GetIdFromPseudo();
+//         if (isset($_POST["message"]) && !empty($_POST["message"])){
 
 
+//           if (isset($_FILES["picture"])) {
+//             echo "Image trouvée<br>";
+//           } else {
+//             echo "Image non trouvée<br>";
+//           }
+//           if (isset($_FILES["picture"]['name']) && !empty($_FILES["picture"]['name'])){
+//             $img_name = $_FILES['picture']['name'];
+//             $tmp_name = $_FILES['picture']['tmp_name'];
+//             $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+//             $img_ex_to_lc = strtolower($img_ex);
+//             $extensions = ["jpeg", "png", "jpg"];
+//             if(in_array($img_ex_to_lc, $extensions)){
+//               $new_img_name = uniqid("IMG-", true).'.'.$img_ex_to_lc;
+//               $img_upload_path = 'images/messages/'.$new_img_name;
+//               move_uploaded_file($tmp_name, $img_upload_path);
+//             }
+//           } else {
+//             $img_upload_path = NULL;
+//           }
 
 
 
-          $message = mysqli_real_escape_string($conn, $_POST["message"]);
-          $sql = "INSERT INTO message (id_sender, id_receiver, text, image) VALUES ('$id_profil', '$id_friend', '$message', '$img_upload_path')";
-          $conn->query($sql);
-          echo "Message sent<br>";
-          echo "Message : $message<br>";
-        } else {
-            echo "No text message";
-        }
-    }
-  }
-}
+
+
+//           $message = mysqli_real_escape_string($conn, $_POST["message"]);
+//           $sql = "INSERT INTO message (id_sender, id_receiver, text, image) VALUES ('$id_profil', '$id_friend', '$message', '$img_upload_path')";
+//           $conn->query($sql);
+//           echo "Message sent<br>";
+//           echo "Message : $message<br>";
+//         } else {
+//             echo "No text message";
+//         }
+//     }
+//   }
+
 
 function GetIdFromPseudo() {
   global $conn;
@@ -243,33 +245,79 @@ function GetIdFromPseudo() {
   return $id_profil;
 }
 
-function DisplayAllFriends() {
-  global $conn;
+// function DisplayAllFriends() {
+//   global $conn;
 
-  $pseudo = $_COOKIE["pseudo"];
+//   $pseudo = $_COOKIE["pseudo"];
 
-  if (isset($_POST["search"])) {
-    if (isset($_POST["profil_receiver"])) {
-        $profil_receiver = mysqli_real_escape_string($conn, $_POST["profil_receiver"]);
-        $sql = "SELECT PRO.id, PRO.pseudo, PRO.avatar FROM profil PRO inner join friend FRD WHERE id_profil1 = (SELECT id FROM profil WHERE pseudo = '$pseudo') AND id_profil2 = PRO.id AND PRO.pseudo like '%$profil_receiver%' OR id_profil2 = (SELECT id FROM profil WHERE pseudo = '$pseudo') AND id_profil1 = PRO.id AND PRO.pseudo like '%$profil_receiver%'";
-    }
-  } else {
-    $sql = "SELECT PRO.id, PRO.pseudo, PRO.avatar FROM profil PRO inner join friend FRD WHERE id_profil1 = (SELECT id FROM profil WHERE pseudo = '$pseudo') AND id_profil2 = PRO.id OR id_profil2 = (SELECT id FROM profil WHERE pseudo = '$pseudo') AND id_profil1 = PRO.id";
-  }
-  $result = $conn->query($sql);
-  if ($result->num_rows > 0) {
-      while($row = $result->fetch_assoc()) {
-          $id = $row["id"];
-          $pseudo = $row["pseudo"];
-          $avatar = $row["avatar"];
-          echo "<div class='friends__lists__item'>";
-          echo "<div class='avatar'><a href='chatbox.php' onclick='connectToFriend($id);'><img src='$avatar' alt='Avatar'></a></div>";
-          echo "<div class='pseudo'><a href='chatbox.php' onclick='connectToFriend($id);'>$pseudo</a></div>";
-          echo "</div>";
-      }
-  } else {
-      echo "No friends.";
-  }
-}
+//   if (isset($_POST["search"])) {
+//     if (isset($_POST["profil_receiver"])) {
+//         $profil_receiver = mysqli_real_escape_string($conn, $_POST["profil_receiver"]);
+//         $sql = "SELECT PRO.id, PRO.pseudo, PRO.avatar FROM profil PRO inner join friend FRD WHERE id_profil1 = (SELECT id FROM profil WHERE pseudo = '$pseudo') AND id_profil2 = PRO.id AND PRO.pseudo like '%$profil_receiver%' OR id_profil2 = (SELECT id FROM profil WHERE pseudo = '$pseudo') AND id_profil1 = PRO.id AND PRO.pseudo like '%$profil_receiver%'";
+//     }
+//   } else {
+//     $sql = "SELECT PRO.id, PRO.pseudo, PRO.avatar FROM profil PRO inner join friend FRD WHERE id_profil1 = (SELECT id FROM profil WHERE pseudo = '$pseudo') AND id_profil2 = PRO.id OR id_profil2 = (SELECT id FROM profil WHERE pseudo = '$pseudo') AND id_profil1 = PRO.id";
+//   }
+//   $result = $conn->query($sql);
+//   if ($result->num_rows > 0) {
+//       while($row = $result->fetch_assoc()) {
+//           $id = $row["id"];
+//           $pseudo = $row["pseudo"];
+//           $avatar = $row["avatar"];
+//           echo "<div class='friends__lists__item'>";
+//           echo "<div class='avatar'><a href='chatbox.php' onclick='connectToFriend($id);'><img src='$avatar' alt='Avatar'></a></div>";
+//           echo "<div class='pseudo'><a href='chatbox.php' onclick='connectToFriend($id);'>$pseudo</a></div>";
+//           echo "</div>";
+//       }
+//   } else {
+//       echo "No friends.";
+//   }
+// }
+
+// function DisplayAllMessages(){
+//   global $conn;
+
+//   $id_profil = GetIdFromPseudo();
+//   // Get the ID of the conversation partner
+//   $id_profil_receiver = $_SESSION["id_friend"];
+
+//   // Retrieve all messages between the logged-in user and the conversation partner
+//   // display all messages
+//   $sql = "SELECT * FROM(SELECT * FROM message WHERE (id_sender = $id_profil AND id_receiver = $_SESSION[id_friend]) OR (id_sender = $_SESSION[id_friend] AND id_receiver = $id_profil) ORDER BY time DESC LIMIT 10) sub ORDER BY time ASC";
+//   $result = $conn->query($sql);
+
+//   // Display the messages
+//   if ($result->num_rows > 0) {
+//       while($row = $result->fetch_assoc()) {
+//           $sender_id = $row["id_sender"];
+//           $message = $row["text"];
+//           $sender_sql = "SELECT pseudo FROM profil WHERE id = '$sender_id'";
+//           $sender_result = $conn->query($sender_sql);
+//           $sender_row = $sender_result->fetch_assoc();
+//           $sender = $sender_row["pseudo"];
+
+//           if ($sender_id == $id_profil) {
+//               echo "<div class='message message-right'>";
+//               echo "<div class='message-text'><p>$message</p></div>";
+//               if ($row["image"] != NULL) {
+//                   echo "<div class='message-image'><img src='$row[image]' alt='Image'></div>";
+//               }
+//               // echo "<div class='message-time'>$row[time]</div>";
+//               echo "</div>";
+//           } else {
+//               echo "<div class='message message-left'>";
+//               echo "<div class='message-text'><p>$message</p></div>";
+//               if ($row["image"] != NULL) {
+//                   echo "<div class='message-image'><img src='$row[image]' alt='Image'></div>";
+//               }
+//               // echo "<div class='message-time'>$row[time]</div>";
+//               echo "</div>";
+//           }
+          
+//       }
+//   } else {
+//       echo "No messages.";
+//   }
+// }
 
 ?>
