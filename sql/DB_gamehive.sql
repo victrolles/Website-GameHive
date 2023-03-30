@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2023 at 12:02 PM
+-- Generation Time: Mar 30, 2023 at 04:47 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -116,8 +116,8 @@ INSERT INTO `message` (`id`, `id_sender`, `id_receiver`, `text`, `image`, `time`
 (93, 1, 2, 'look at that', '../images/messages/IMG-6425592620d086.99912941.jpg', '2023-03-30 11:40:54', 1),
 (94, 1, 2, 'here is rain', '../images/messages/IMG-64255a13d9dce9.66927899.jpg', '2023-03-30 11:44:51', 1),
 (95, 1, 2, 'look', '../images/messages/IMG-64255a428325a1.18326709.jpg', '2023-03-30 11:45:38', 1),
-(96, 1, 2, 'comment ça va ?', '', '2023-03-30 11:49:33', 1),
-(97, 1, 2, 'et toi ?', '', '2023-03-30 11:56:48', 1);
+(130, 2, 1, 'Regarde comme ca mache ien', '', '2023-03-30 16:28:25', 1),
+(131, 2, 1, 'Look', '../images/messages/IMG-64259e2368d155.64735487.png', '2023-03-30 16:35:15', 1);
 
 -- --------------------------------------------------------
 
@@ -219,7 +219,7 @@ ALTER TABLE `gamemode`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- AUTO_INCREMENT for table `profil`

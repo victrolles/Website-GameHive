@@ -41,6 +41,7 @@ if (isset($_SESSION["id_friend"])) {
                 echo "<div class='message-text'><p>$message</p></div>";
                 
                 if ($row["image"] != NULL) {
+                    $row["image"] = str_replace("../", "", $row["image"]);
 
                     echo "<div class='message-image'><img src='$row[image]' alt='Image'></div>";
                 }
