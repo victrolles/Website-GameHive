@@ -62,7 +62,7 @@ if (CheckLogin()==true){
                     <div class="message-send">
                         <!-- <form onsubmit="return sendMessage(event); sendMessage(event);" enctype="multipart/form-data"> -->
                         <form id="message-form" enctype="multipart/form-data">
-                            <input type="file" name="picture" accept="image/png, image/jpeg"><br>
+                            <input type="file" id="img" name="picture" accept="image/png, image/jpeg"><br>
                             <input type="text" id="msg" name="message" placeholder="message">
                             <button type="submit">Send</button>
                         </form>
@@ -73,38 +73,3 @@ if (CheckLogin()==true){
         </div>
     </body>
 </html>
-
-<!-- <script>
-    function displayMessage() {
-      console.log("displaying message");
-      const form = document.getElementById('message-form');
-      form.addEventListener('submit', function(event) {
-      // Prevent the default form submission behavior
-      event.preventDefault();
-
-      // Get the form data using the FormData constructor
-      const formData = new FormData(form);
-
-      // Send an AJAX request to display_message.php
-      const xhr = new XMLHttpRequest();
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-          if (xhr.status === 200) {
-            // Update the chat messages container with the response
-            const messagesContainer = document.getElementById('message-list');
-            messagesContainer.innerHTML = xhr.responseText;
-          } else {
-            console.error('Error:', xhr.status, xhr.statusText);
-          }
-        }
-      };
-      xhr.open('POST', './php/display_messages.php');
-      xhr.send(formData);
-      });
-    }
-    const form = document.getElementById('message-form');
-    form.addEventListener('submit', displayMessage);
-    window.onload = function() {
-        displayMessage();
-    }
-</script> -->

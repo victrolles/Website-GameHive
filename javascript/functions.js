@@ -14,9 +14,6 @@ function connectToFriend(id_friend) {
 
 (function() {
 
-
-
-
   function searchFriends() {
     const searchBox = document.getElementById('search-box');
     const searchQuery = searchBox.value;
@@ -36,7 +33,6 @@ function connectToFriend(id_friend) {
     xhr.open('GET', './php/search-friends.php?query=' + encodeURIComponent(searchQuery));
     xhr.send();
   }
-
 
   function displayMessage() {
     console.log("displaying message");
@@ -59,14 +55,13 @@ function connectToFriend(id_friend) {
     return false;
   }
 
-
-
   function sendMessage() {
     
     console.log("sending message");
     // Get the form data using the FormData constructor
     const formData = new FormData(document.getElementById('message-form'));
     const messageInput = document.getElementById('msg');
+    const fileInput = document.getElementById('img');
 
     // Send an AJAX request to display_message.php
     const xhr = new XMLHttpRequest();
@@ -77,6 +72,7 @@ function connectToFriend(id_friend) {
           const messagesContainer = document.getElementById('message-error');
           messagesContainer.innerHTML = xhr.responseText;
           messageInput.value = '';
+          fileInput.value = '';
           displayMessage();
         } else {
           console.error('Error:', xhr.status, xhr.statusText);
@@ -86,17 +82,14 @@ function connectToFriend(id_friend) {
     xhr.open('POST', './php/send_message.php');
     xhr.send(formData);
     return false;
-}
-
+  }
 
   window.onload = function() {
     searchFriends();
     displayMessage();
-    // sendMessage();
   }
 
   window.searchFriends = searchFriends;
-  // window.displayMessage = displayMessage;
   window.sendMessage = sendMessage;
 
   document.addEventListener("DOMContentLoaded", function() {

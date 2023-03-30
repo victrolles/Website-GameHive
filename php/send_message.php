@@ -3,22 +3,10 @@ session_start();
 include "database.php";
 ConnectDatabase();
 global $conn;
-echo "Send function<br>";
-  
-echo "Send button pressed<br>";
 if (isset($_SESSION["id_friend"])){
-    echo"Session id_friend set<br>";
     $id_friend = $_SESSION["id_friend"];
     $id_profil = GetIdFromPseudo();
     if (isset($_POST["message"]) && !empty($_POST["message"])){
-  
-  
-        if (isset($_FILES["picture"])) {
-            echo "Image trouvée<br>";
-        } else {
-            echo "Image non trouvée<br>";
-        }
-
         if (isset($_FILES["picture"]['name']) && !empty($_FILES["picture"]['name'])){
             $img_name = $_FILES['picture']['name'];
             $tmp_name = $_FILES['picture']['tmp_name'];
@@ -29,22 +17,12 @@ if (isset($_SESSION["id_friend"])){
                 $new_img_name = uniqid("IMG-", true).'.'.$img_ex_to_lc;
                 $img_upload_path = '../images/messages/'.$new_img_name;
                 move_uploaded_file($tmp_name, $img_upload_path);
-                echo "path : $img_upload_path<br>";
             }
         } else {
             $img_upload_path = NULL;
         }
-  
-  
-  
-  
-  
         $message = mysqli_real_escape_string($conn, $_POST["message"]);
         $sql = "INSERT INTO message (id_sender, id_receiver, text, image) VALUES ('$id_profil', '$id_friend', '$message', '$img_upload_path')";
         $conn->query($sql);
-        echo "Message sent<br>";
-        echo "Message : $message<br>";
-    } else {
-        echo "No text message";
     }
 }
