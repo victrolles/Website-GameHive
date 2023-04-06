@@ -9,6 +9,6 @@
     <li><i class="fa fa-list"></i><span>Lists</span></li>
     <li><i class="fa fa-user"></i><span>Profile</span></li>
     <li><i class="fa fa-ellipsis-h"></i><span>More</span></li>
-    <li style="padding: 10px 40px:"><button class="sidebar__tweet">Tweet</button></li>
+    <li style="padding: 10px 40px"><button class="sidebar__tweet">Tweet</button></li>
     </ul>
 </div>
