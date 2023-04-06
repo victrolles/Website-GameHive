@@ -12,7 +12,7 @@ if (isset($_SESSION["id_friend"])) {
 
     // Retrieve all messages between the logged-in user and the conversation partner
     // display all messages
-    $sql = "SELECT * FROM(SELECT * FROM message WHERE (id_sender = $id_profil AND id_receiver = $_SESSION[id_friend]) OR (id_sender = $_SESSION[id_friend] AND id_receiver = $id_profil) ORDER BY time DESC LIMIT 10) sub ORDER BY time ASC";
+    $sql = "SELECT * FROM(SELECT * FROM message WHERE (id_sender = $id_profil AND id_receiver = $_SESSION[id_friend]) OR (id_sender = $_SESSION[id_friend] AND id_receiver = $id_profil) ORDER BY time DESC LIMIT 4) sub ORDER BY time ASC";
     $result = $conn->query($sql);
 
     // Display the messages

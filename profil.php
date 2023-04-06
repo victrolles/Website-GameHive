@@ -18,10 +18,9 @@ if (CheckLogin()==true){
 }
 ?>
 
-<?php include "head.php"; ?>
+<?php include "php/header.php"; ?>
 <body>
     <div class="wrapper">
-        <a href="chatbox.php">Messagerie</a>
         <?php echo "Prénom : ".$prenom."<br><br>"; ?>
         <?php echo "Nom : ".$nom."<br><br>"; ?>
         <?php echo "Pseudo : ".$pseudo."<br><br>"; ?>

@@ -1,4 +1,4 @@
-<?php include "head.php"; ?>
+<?php include "php/header.php"; ?>
 <body>
     <div class="wrapper">
         <section class="form signup">
@@ -29,7 +29,7 @@ if (isset($_POST["submit"])){
     ConnectDatabase();
     if (verify_pseudo_password()==true){
         login();
-        header("location: profil.php");
+        header("location: accueil.php");
     } else {
         echo "Pseudo ou mot de passe incorrect";
     }

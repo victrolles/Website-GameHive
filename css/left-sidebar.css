@@ -1,0 +1,79 @@
+.sidebar__tweet{
+    background-color: var(--twitter-color);
+    border:none;
+    color: #fff;
+    font-weight: 700;
+    text-transform: inherit;
+    border-radius: 30px;
+    height: 50px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* this is the code for the left sidebar to make it sticky and not scroll with the page */
+.sidebar{
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.sidebar ul li{
+    text-decoration: none;
+    padding: 15px 60px;
+    color: rgba(209, 196, 15, 0.614);
+    font-weight: 700;
+    font-size: 19px;
+    align-items: center;
+    display: flex;
+}
+
+.sidebar ul li:hover {
+    background-color: #f5f8fa;
+}
+
+.sidebar .profile__info, .sidebar ul a {
+    text-decoration: none;
+    color: rgba(209, 196, 15, 0.614);
+    font-weight: 700;
+    font-size: 19px;
+}
+
+.sidebar ul li i{
+    font-size:24px;
+    width: 25px;
+}
+
+.sidebar ul li span{
+    margin-left:15px;
+}
+
+.active__menu i, .active__menu span{
+    color: var(yellow);
+}
+
+.ico{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    border: 1px solid var(yellow);
+    margin: 0 10px;
+}
+
+.sidebar .profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #e0e5e9;
+    border-top: 1px solid #e0e5e9;
+    cursor: pointer;
+}
+
+.sidebar .profile:hover {
+    background-color: #f5f8fa;
+}
+
+.sidebar .logout {
+    margin: 2rem;
+}

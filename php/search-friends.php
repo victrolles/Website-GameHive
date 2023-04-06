@@ -20,8 +20,8 @@ if ($result->num_rows > 0) {
         $pseudo = $row["pseudo"];
         $avatar = $row["avatar"];
         echo "<div class='friends__lists__item'>";
-        echo "<div class='avatar'><a href='chatbox.php' onclick='connectToFriend($id);'><img src='$avatar' alt='Avatar'></a></div>";
-        echo "<div class='pseudo'><a href='chatbox.php' onclick='connectToFriend($id);'>$pseudo</a></div>";
+        echo "<div class='avatar'><a href='messagerie.php' onclick='connectToFriend($id);'><img class='ico' src='$avatar' alt='Avatar'></a></div>";
+        echo "<div class='pseudo'><a href='messagerie.php' onclick='connectToFriend($id);'>$pseudo</a></div>";
 
         $sql = "SELECT * FROM message WHERE id_receiver = '$id_profil' AND id_sender = '$id' AND vu = 0";
         $result2 = $conn->query($sql);
