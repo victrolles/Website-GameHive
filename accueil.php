@@ -6,6 +6,11 @@ session_start();
 
 if (CheckLogin()==true){
     global $conn;
+    $id_profil = GetIdFromPseudo("");
+    $sql = "SELECT avatar FROM profil WHERE id = '$id_profil'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $avatar = $row['avatar'];
 } else {
     header("location: login.php");
 }
@@ -29,12 +34,12 @@ if(isset($_POST['btn_add_post'])){
 
         <div class="tweet__box tweet__add">
             <div class="tweet__left">
-                <img src="images/avatar.png" alt="">
+                <img src="<?php echo $avatar?>" alt="avatar">
             </div>
 
             <div class="tweet__body">
                 <form method="post" enctype="multipart/form-data">
-                    <textarea name="post_text" id="" cols="100%" rows="3" placeholder="What's happening?"></textarea>
+                    <textarea name="post_text" id="" cols="100%" rows="3" placeholder="What's happening?" required></textarea>
                     <div class="tweet__icons-wrapper">
                         <div class="tweet__icons-add">
                             <input type="file" id="img" name="post_image" accept="image/png, image/jpeg">

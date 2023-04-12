@@ -1,11 +1,12 @@
 <?php
-$pseudo = $_COOKIE['pseudo'];
 $id_profil = GetIdFromPseudo("");
-$query = "SELECT * FROM post WHERE id_profil = $id_profil ORDER BY id DESC";
+$query = "SELECT * FROM post POS INNER JOIN profil PRO ON PRO.id = POS.id_profil WHERE id_profil = $id_profil OR id_profil IN (SELECT id_profil FROM follow WHERE id_follower = $id_profil) ORDER BY date DESC";
 $data = mysqli_query($conn, $query);
 
 while($row=mysqli_fetch_assoc($data))
 {
+    $pseudo = $row['pseudo'];
+    $avatar = $row['avatar'];
     $post_text = $row['texte'];
     $post_date = $row['date'];
 
@@ -13,7 +14,7 @@ while($row=mysqli_fetch_assoc($data))
 
 <div class="tweet__box">
     <div class="tweet__left">
-        <img src="images/avatar.png" alt="">
+        <img src="<?php echo $avatar?>" alt="avatar">
     </div>
     <div class="tweet__body">
         <div class="tweet__header">
@@ -25,7 +26,7 @@ while($row=mysqli_fetch_assoc($data))
         <p class="tweet__text"><?php echo $post_text; ?></p>
 
         <?php
-        if (isset($row["image"])){
+        if (isset($row["image"]) && $row["image"] != ""){
             $row["image"] = str_replace("../", "", $row["image"]);
             echo "<div class='tweet__image'><img src='$row[image]' alt='Image'></div>";
         }?>
@@ -43,7 +44,6 @@ while($row=mysqli_fetch_assoc($data))
         <div class="dropdown">
             <button class="dropbtn"><span class="fa fa-ellipsis-h"></span></button>
             <div class="dropdown-content">
-                <!-- rien compris -->
                 <a href="index.php?del=<?php echo $row['id']; ?>"><i class="far fa-trash-alt"></i><span>Delete</span></a>
             
             </div>
