@@ -5,18 +5,22 @@ session_start();
 <script src='javascript/checkStatut.js'></script>
 
 <?php 
+
 include_once "php/database.php";
-if (CheckLogin()==true){
-    global $conn;
-    $pseudo = $_COOKIE["pseudo"];
-    $sql = "SELECT * FROM profil WHERE pseudo = '$pseudo'";
+
+if (!CheckLogin()){
+    header("location: accueil.php");
+}
+
+if(isset($_SESSION['id_friend'])){
+    $id_friend = $_SESSION['id_friend'];
+    $sql = "SELECT * FROM profil WHERE id = '$id_friend'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
-    $avatar = $row["avatar"];
-    $id_profil = $row["id"];
-} else {
-    header("location: login.php");
+    $pseudo_friend = $row['pseudo'];
+    $avatar_friend = $row['avatar'];
 }
+
 ?>
 <html lang="fr">
     <?php include "php/header.php";?>
@@ -42,13 +46,17 @@ if (CheckLogin()==true){
             <div class="right__sidebar">
                 <div class="conversations">
                     <div class="conversations__header">
-                        <div class="friends__lists__item">
-                            <div class="avatar">
-                                <?php if(isset($_SESSION["avatar_friend"])) {$avatar_friend = $_SESSION["avatar_friend"]; echo "<img class='ico' src='$avatar_friend' alt='avatar'>";} ?>
-                            </div>
-                            <div class="name">
-                                <?php if(isset($_SESSION["pseudo_friend"])) {echo $_SESSION["pseudo_friend"];} ?>
-                        </div>
+                        <?php
+                            if(isset($_SESSION["id_friend"])) {
+                                echo "<a href='profil.php?pseudo=$pseudo_friend'?>";
+                                    echo "<div class='friends__lists__item'>";
+                                        echo "<img class='ico' src='$avatar_friend' alt='avatar'>";
+                                        echo "$pseudo_friend";
+                                    echo "</div>";
+                                echo "</a>";
+                            }
+                        ?>
+
                     </div>
                     <div class="content">
                         <div id="message-list"></div>

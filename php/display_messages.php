@@ -6,7 +6,7 @@ if (isset($_SESSION["id_friend"])) {
     include "database.php";
     ConnectDatabase();
     // Get the logged-in user's ID
-    $id_profil = GetIdFromPseudo();
+    $id_profil = GetIdFromPseudo("");
     // Get the ID of the conversation partner
     $id_profil_receiver = $_SESSION["id_friend"];
 

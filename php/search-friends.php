@@ -5,7 +5,7 @@ ConnectDatabase();
 global $conn;
 
 $pseudo = $_COOKIE["pseudo"];
-$id_profil = GetIdFromPseudo();
+$id_profil = GetIdFromPseudo("");
 
 if (isset($_GET['query'])) {
     $profil_receiver = $_GET['query'];

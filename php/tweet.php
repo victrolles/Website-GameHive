@@ -1,6 +1,6 @@
 <?php
 $pseudo = $_COOKIE['pseudo'];
-$id_profil = GetIdFromPseudo();
+$id_profil = GetIdFromPseudo("");
 $query = "SELECT * FROM post WHERE id_profil = $id_profil ORDER BY id DESC";
 $data = mysqli_query($conn, $query);
 
@@ -17,9 +17,9 @@ while($row=mysqli_fetch_assoc($data))
     </div>
     <div class="tweet__body">
         <div class="tweet__header">
-            <p class="tweet__name"><?php echo $pseudo; ?></p>
-            <p class="tweet__username">@<?php echo $pseudo; ?></p>
-            <p class="tweet__date"><?php echo $post_date=date ('M d'); ?></p>
+            <p class="tweet__name"><a href="profil.php?pseudo=<?php echo $pseudo; ?>"><?php echo $pseudo; ?></a></p>
+            <p class="tweet__username"><a href="profil.php?pseudo=<?php echo $pseudo; ?>">@<?php echo $pseudo; ?></a></p>
+            <p class="tweet__date"><a href="profil.php?pseudo=<?php echo $pseudo; ?>"><?php echo $post_date=date ('M d'); ?></a></p>
         </div>
 
         <p class="tweet__text"><?php echo $post_text; ?></p>

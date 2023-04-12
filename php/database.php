@@ -187,10 +187,12 @@ function ConnectToReciever($id_profil_receiver) {
 }
 
 
-function GetIdFromPseudo() {
+function GetIdFromPseudo($pseudo) {
   global $conn;
-
-  $pseudo = $_COOKIE["pseudo"];
+  if (!isset($pseudo) || empty($pseudo)){
+    $pseudo = $_COOKIE["pseudo"];
+  }
+  
   $sql = "SELECT * FROM profil WHERE pseudo = '$pseudo'";
   $result = $conn->query($sql);
   $row = $result->fetch_assoc();
@@ -204,13 +206,13 @@ function CreateNewBadge(){
   $newGame = mysqli_real_escape_string($conn, $_POST["game"]);
   $newDescription = mysqli_real_escape_string($conn, $_POST["description"]);
 
-  echo "Game : $newGame <br>";
-  echo "Description : $newDescription <br>";
-  if (isset($_FILES['image'])){
-    print_r($_FILES['image']);
-  } else {
-    echo "No image uploaded<br>";
-  }
+  // echo "Game : $newGame <br>";
+  // echo "Description : $newDescription <br>";
+  // if (isset($_FILES['image'])){
+  //   print_r($_FILES['image']);
+  // } else {
+  //   echo "No image uploaded<br>";
+  // }
 
   if (isset($_FILES["image"]['name']) && !empty($_FILES["image"]['name'])){
     $img_name = $_FILES['image']['name'];
@@ -223,6 +225,8 @@ function CreateNewBadge(){
       $img_upload_path = 'images/badges/'.$new_img_name;
       move_uploaded_file($tmp_name, $img_upload_path);
     }
+  } else {
+    $img_upload_path = NULL;
   }
 
   //retrieve the id of the game
@@ -254,7 +258,7 @@ function CheckExistingGame(){
 
 function SendPost(){
   global $conn;
-  $id_profil = GetIdFromPseudo();
+  $id_profil = GetIdFromPseudo("");
   $post_text = mysqli_real_escape_string($conn, $_POST["post_text"]);
 
   if (isset($_FILES["post_image"]['name']) && !empty($_FILES["post_image"]['name'])){
@@ -274,5 +278,86 @@ function SendPost(){
   $sql="INSERT INTO post (id_profil, texte, image, date) VALUES ($id_profil,'$post_text', '$img_upload_path', now())";
   $conn->query($sql);
 }
+
+//function to return the number of friends of a profil (id_profil)
+function GetNumberOfFriends($id_profil){
+  global $conn;
+  $sql = "SELECT * FROM friend WHERE id_profil1 = $id_profil OR id_profil2 = $id_profil";
+  $result = $conn->query($sql);
+  $number_of_friends = mysqli_num_rows($result);
+  return $number_of_friends;
+}
+
+//function to return the number of badges unlocked of a profil (id_profil)
+function GetNumberOfBadges($id_profil){
+  global $conn;
+  $sql = "SELECT * FROM unlocked_badge WHERE id_profil = $id_profil";
+  $result = $conn->query($sql);
+  $number_of_badges = mysqli_num_rows($result);
+  return $number_of_badges;
+}
+
+//function to return the number of posts of a profil (id_profil)
+function GetNumberOfPosts($id_profil){
+  global $conn;
+  $sql = "SELECT * FROM post WHERE id_profil = $id_profil";
+  $result = $conn->query($sql);
+  $number_of_posts = mysqli_num_rows($result);
+  return $number_of_posts;
+}
+
+//function to return the number of followers of a profil (id_profil)
+function GetNumberOfFollowers($id_profil){
+  global $conn;
+  $sql = "SELECT * FROM follow WHERE id_followed = $id_profil";
+  $result = $conn->query($sql);
+  $number_of_followers = mysqli_num_rows($result);
+  return $number_of_followers;
+}
+
+//function to return the number of followings of a profil (id_profil)
+function GetNumberOfFollowings($id_profil){
+  global $conn;
+  $sql = "SELECT * FROM follow WHERE id_follower = $id_profil";
+  $result = $conn->query($sql);
+  $number_of_followings = mysqli_num_rows($result);
+  return $number_of_followings;
+}
+
+//function to check if a profil (id_follower) is following another profil (id_followed)
+function CheckIfFollowing($id_follower, $id_followed){
+  global $conn;
+  $sql = "SELECT * FROM follow WHERE id_follower = $id_follower AND id_followed = $id_followed";
+  $result = $conn->query($sql);
+  if (mysqli_num_rows($result) > 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+//function to check if a profil is friend with another profil
+function CheckIfFriend($id_profil1, $id_profil2){
+  global $conn;
+  $sql = "SELECT * FROM friend WHERE (id_profil1 = $id_profil1 AND id_profil2 = $id_profil2) OR (id_profil1 = $id_profil2 AND id_profil2 = $id_profil1)";
+  $result = $conn->query($sql);
+  if (mysqli_num_rows($result) > 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>

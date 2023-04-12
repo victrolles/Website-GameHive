@@ -5,7 +5,7 @@ ConnectDatabase();
 global $conn;
 if (isset($_SESSION["id_friend"])){
     $id_friend = $_SESSION["id_friend"];
-    $id_profil = GetIdFromPseudo();
+    $id_profil = GetIdFromPseudo("");
     if (isset($_POST["message"]) && !empty($_POST["message"])){
         if (isset($_FILES["picture"]['name']) && !empty($_FILES["picture"]['name'])){
             $img_name = $_FILES['picture']['name'];

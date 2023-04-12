@@ -3,6 +3,8 @@
 @import "left-sidebar.css";
 @import "right-sidebar.css";
 @import "messages.css";
+@import "profile.css";
+@import "classement.css";
 
 :root{
     --twitter-color: #cbd81c;

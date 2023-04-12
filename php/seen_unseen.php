@@ -4,10 +4,8 @@ include "database.php";
 ConnectDatabase();
 global $conn;
 
-// echo"<script src='javascript/functions.js'></script>";
-$pseudo = $_COOKIE["pseudo"];
 // Get the logged-in user's ID
-$id_profil = GetIdFromPseudo();
+$id_profil = GetIdFromPseudo("");
 // Get the ID of the conversation partner
 $id_profil_receiver = $_SESSION["id_friend"];
 

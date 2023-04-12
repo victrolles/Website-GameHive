@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2023 at 01:35 PM
+-- Generation Time: Apr 12, 2023 at 01:48 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -39,38 +39,11 @@ CREATE TABLE `badge` (
 --
 
 INSERT INTO `badge` (`id`, `image`, `description`, `id_game`) VALUES
-(1, '', 'Reach Champion !', 1),
-(2, '', 'Reach Champion in ranked !!!', 1),
-(3, '', 'Reach Champion in ranked !!!', 1),
-(4, '', 'Reach Champion in ranked !!!', 1),
-(5, '', 'Reach Champion in ranked !!!', 1),
-(6, '', 'Reach Champion in ranked !!!', 1),
-(7, '', 'Reach Champion in ranked !!!', 1),
-(8, '', 'Reach Champion in ranked !!!', 1),
-(9, '', 'Reach Champion in ranked !!!', 1),
-(10, '', 'Reach Champion in ranked !!!', 1),
-(11, '', 'Reach Champion in ranked !!!', 1),
-(12, '', 'Reach Champion in ranked !!!', 1),
-(13, '', 'Reach Champion in ranked !!!', 1),
-(14, '', 'Reach Champion in ranked !!!', 1),
-(15, '', 'Reach Champion in ranked !!!', 1),
-(16, '', 'Reach Champion in ranked !!!', 1),
-(17, '', 'Reach Champion in ranked !!!', 1),
-(18, '', 'Reach Champion in ranked !!!', 1),
-(19, '', 'Reach Champion in ranked !!!', 1),
-(20, '', 'test', 1),
-(21, '', 'test', 1),
-(22, '', 'test', 1),
-(23, '', 'test', 1),
-(24, '', 'test', 1),
-(25, '', 'test', 1),
-(26, '', 'gc', 1),
-(27, '', 'gc', 1),
-(28, '', 'test', 1),
-(29, '', 'test', 1),
-(30, '', 'test', 1),
-(31, '', 'de', 1),
-(32, 'images/badges/IMG-642af960235c82.34654654.png', 'lm', 1);
+(36, 'images/badges/IMG-642eca7301e9e9.97308931.png', 'Reach SSL in Ranked', 1),
+(37, 'images/badges/IMG-642eca92064022.80604155.png', 'Reach Grand Champion III in Ranked', 1),
+(38, 'images/badges/IMG-642ecab3e5e319.57446292.png', 'Reach Grand Champion II in Ranked', 1),
+(39, 'images/badges/IMG-642ecad4da9ab7.90999915.png', 'Reach Grand Champion I in Ranked', 1),
+(40, 'images/badges/IMG-642ed0302ab2d3.48385903.png', 'Default', 3);
 
 -- --------------------------------------------------------
 
@@ -84,6 +57,26 @@ CREATE TABLE `classement` (
   `id_gamemode` int(11) NOT NULL,
   `score` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `follow`
+--
+
+CREATE TABLE `follow` (
+  `id` int(11) NOT NULL,
+  `id_follower` int(11) NOT NULL,
+  `id_followed` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `follow`
+--
+
+INSERT INTO `follow` (`id`, `id_follower`, `id_followed`) VALUES
+(5, 1, 5),
+(6, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -106,7 +99,6 @@ INSERT INTO `friend` (`id`, `id_profil1`, `id_profil2`) VALUES
 (2, 1, 3),
 (3, 1, 4),
 (4, 2, 4),
-(5, 1, 5),
 (6, 2, 5);
 
 -- --------------------------------------------------------
@@ -127,7 +119,8 @@ CREATE TABLE `game` (
 
 INSERT INTO `game` (`id`, `nom`, `description`) VALUES
 (1, 'Rocket League', 'Jeu de foot avec des voitures'),
-(2, 'League Of Legends', 'Best game ever');
+(2, 'League Of Legends', 'Best game ever'),
+(3, 'No game', 'No description');
 
 -- --------------------------------------------------------
 
@@ -183,7 +176,11 @@ INSERT INTO `message` (`id`, `id_sender`, `id_receiver`, `text`, `image`, `time`
 (133, 1, 5, 'how are you ?', '', '2023-03-31 10:23:13', 1),
 (134, 1, 5, 'yo', '', '2023-03-31 10:26:51', 0),
 (135, 5, 1, 'salu', '', '2023-03-31 10:26:54', 1),
-(136, 1, 5, 'yo', '', '2023-03-31 10:27:05', 0);
+(136, 1, 5, 'yo', '', '2023-03-31 10:27:05', 0),
+(137, 1, 2, 'yo', '', '2023-04-06 13:41:17', 0),
+(138, 1, 2, 'regarde ça', '../images/messages/IMG-642eafef724a93.59185397.png', '2023-04-06 13:41:35', 0),
+(139, 1, 2, 'hi', '', '2023-04-08 16:17:09', 0),
+(140, 1, 2, 'jjo', '../images/messages/IMG-6431777b5e8329.42357981.png', '2023-04-08 16:17:31', 0);
 
 -- --------------------------------------------------------
 
@@ -204,9 +201,8 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`id`, `id_profil`, `texte`, `image`, `date`) VALUES
-(1, 1, 'yo', NULL, '2023-04-05 10:49:22'),
-(2, 1, 'yo', NULL, '2023-04-05 10:50:12'),
-(3, 1, 'yo', NULL, '2023-04-06 11:57:04');
+(10, 1, 'Look', 'images/posts/IMG-642ebc1ac61976.38724835.png', '2023-04-06 14:33:30'),
+(11, 1, 'yo tout le monde', 'images/posts/IMG-643177a5d72829.95178604.png', '2023-04-08 16:18:13');
 
 -- --------------------------------------------------------
 
@@ -252,6 +248,16 @@ CREATE TABLE `unlocked_badge` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `unlocked_badge`
+--
+
+INSERT INTO `unlocked_badge` (`id`, `id_profil`, `id_badge`, `selected`, `date_obtention`) VALUES
+(1, 1, 36, 1, '2023-04-06 16:01:28'),
+(2, 1, 37, 1, '2023-04-06 16:01:28'),
+(3, 1, 38, 1, '2023-04-06 16:01:28'),
+(4, 1, 39, 0, '2023-04-06 16:01:28');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -265,6 +271,12 @@ ALTER TABLE `badge`
 -- Indexes for table `classement`
 --
 ALTER TABLE `classement`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `follow`
+--
+ALTER TABLE `follow`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -317,13 +329,19 @@ ALTER TABLE `unlocked_badge`
 -- AUTO_INCREMENT for table `badge`
 --
 ALTER TABLE `badge`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `classement`
 --
 ALTER TABLE `classement`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `follow`
+--
+ALTER TABLE `follow`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `friend`
@@ -335,7 +353,7 @@ ALTER TABLE `friend`
 -- AUTO_INCREMENT for table `game`
 --
 ALTER TABLE `game`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `gamemode`
@@ -347,13 +365,13 @@ ALTER TABLE `gamemode`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `profil`
@@ -365,7 +383,7 @@ ALTER TABLE `profil`
 -- AUTO_INCREMENT for table `unlocked_badge`
 --
 ALTER TABLE `unlocked_badge`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

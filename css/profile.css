@@ -1,0 +1,9 @@
+.profile .dropdown:hover .dropdown-content{
+    display: flex;
+}
+
+.profile .badges .ico {
+    border: 1px solid #0f1010;
+    background-color: #e6e6e6;
+    border-radius: 50%;
+}

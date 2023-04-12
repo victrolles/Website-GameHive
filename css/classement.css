@@ -1,0 +1,27 @@
+.classement {
+    display : flex;
+
+}
+
+/* .classement .tweet__add{
+    display: flex;
+    justify-content: space-around;
+}
+
+.classement .page__title {
+    display: flex;
+} */
+
+.classement input{
+    width: 5rem;
+}
+
+/* .classement .search-container {
+    width:40%;
+    margin: .5rem 1rem;
+} */
+
+.searchgame {
+    width : 50%;
+    display: grid;
+}
