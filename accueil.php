@@ -58,7 +58,25 @@ if(isset($_POST['btn_add_post'])){
 <?php
     if(isset($_GET['del'])){
         $Del_ID=$_GET['del'];
-        $sql="DELETE FROM post WHERE post_id='$Del_ID'";
+
+        // DELETE IMAGE from images folder
+        $sql2 = "SELECT image FROM post WHERE id='$Del_ID'";
+        $result = $conn->query($sql2);
+        $row = $result->fetch_assoc();
+        $image = $row['image'];
+
+        if (file_exists($image)) {
+            if (unlink($image)) {
+                echo "File deleted successfully.";
+            } else {
+                echo "Error deleting the file.";
+            }
+        } else {
+            echo "File not found.";
+        }
+
+
+        $sql="DELETE FROM post WHERE id='$Del_ID'";
         $post_query=$conn->query($sql);
 
         if($sql){
