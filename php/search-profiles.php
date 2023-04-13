@@ -20,8 +20,8 @@ if ($result->num_rows > 0) {
         $pseudo = $row["pseudo"];
         $avatar = $row["avatar"];
         echo "<div class='friends__lists__item'>";
-        echo "<div class='avatar'><a href='profil.php?pseudo=$pseudo' onclick='connectToFriend($id);'><img class='ico' src='$avatar' alt='Avatar'></a></div>";
-        echo "<div class='pseudo'><a href='profil.php?pseudo=$pseudo' onclick='connectToFriend($id);'>$pseudo</a></div>";
+        echo "<div class='avatar'><a href='profil.php?pseudo=$pseudo'><img class='ico' src='$avatar' alt='Avatar'></a></div>";
+        echo "<div class='pseudo'><a href='profil.php?pseudo=$pseudo'>$pseudo</a></div>";
         echo "</div>";
     }
 } else {

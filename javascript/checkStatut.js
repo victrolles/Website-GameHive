@@ -20,4 +20,4 @@ function checkForNewMessages() {
   }
   
   // Call the checkForNewMessages function every 2 seconds
-  setInterval(checkForNewMessages, 20000);
+  setInterval(checkForNewMessages, 2000);
