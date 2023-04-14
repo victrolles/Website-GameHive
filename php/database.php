@@ -206,14 +206,6 @@ function CreateNewBadge(){
   $newGame = mysqli_real_escape_string($conn, $_POST["game"]);
   $newDescription = mysqli_real_escape_string($conn, $_POST["description"]);
 
-  // echo "Game : $newGame <br>";
-  // echo "Description : $newDescription <br>";
-  // if (isset($_FILES['image'])){
-  //   print_r($_FILES['image']);
-  // } else {
-  //   echo "No image uploaded<br>";
-  // }
-
   if (isset($_FILES["image"]['name']) && !empty($_FILES["image"]['name'])){
     $img_name = $_FILES['image']['name'];
     $tmp_name = $_FILES['image']['tmp_name'];
@@ -348,7 +340,76 @@ function CheckIfFriend($id_profil1, $id_profil2){
   }
 }
 
+function ModifyEachData($data){
+  global $conn;
+  $pseudo = $_COOKIE["pseudo"];
+  if (isset($_POST[$data]) && $_POST[$data] != ""){
+    $value = $_POST[$data];
+    $sql = "UPDATE profil SET $data = '$value' WHERE pseudo = '$pseudo'";
+    if ($conn->query($sql)){
+      echo "$data modified successfully<br>";
+    } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+  } else {
+    echo "$data not modified<br>";
+  }
+}
 
+function ModifyImage(){
+  if (isset($_FILES["image"]['name']) && !empty($_FILES["image"]['name'])){
+    global $conn;
+    $pseudo = $_COOKIE["pseudo"];
+    // delete old image
+    $sql = "SELECT avatar FROM profil WHERE pseudo = '$pseudo'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $old_img = $row["avatar"];
+
+    if (file_exists($old_img) && $old_img != "images/avatars/default.png"){
+      unlink($old_img);
+    }
+
+    // upload new image
+    $img_name = $_FILES['image']['name'];
+    $tmp_name = $_FILES['image']['tmp_name'];
+    $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+    $img_ex_to_lc = strtolower($img_ex);
+    $extensions = ["jpeg", "png", "jpg"];
+    if(in_array($img_ex_to_lc, $extensions)){
+        $new_img_name = uniqid("IMG-", true).'.'.$img_ex_to_lc;
+        $img_upload_path = '../images/avatars/'.$new_img_name;
+        move_uploaded_file($tmp_name, $img_upload_path);
+    } else {
+      echo "Image problem<br>";
+    }
+
+    // update database
+    echo "$img_upload_path<br>";
+    $img_upload_path = str_replace("../", "", $img_upload_path);
+    echo "$img_upload_path<br>";
+    $sql = "UPDATE profil SET avatar = '$img_upload_path' WHERE pseudo = '$pseudo'";
+    if ($conn->query($sql)){
+      echo "Image modified successfully<br>";
+    } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+  } else {
+    echo "Image not modified<br>";
+  }
+}
+
+function CheckPostsBelongingToUser($id_post){
+  global $conn;
+  $id_profil = GetIdFromPseudo("");
+  $sql = "SELECT * FROM post WHERE id_profil = $id_profil AND id = $id_post";
+  $result = $conn->query($sql);
+  if (mysqli_num_rows($result) > 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 
 

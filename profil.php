@@ -89,17 +89,6 @@ if (isset($_GET["pseudo"]) && $_GET["pseudo"] != ""){
         </div>
     </div>
     <?php require_once('php/right-sidebar.php'); ?>
-<?php
-    if(isset($_GET['del'])){
-        $Del_ID=$_GET['del'];
-        $sql="DELETE FROM post WHERE post_id='$Del_ID'";
-        $post_query=$conn->query($sql);
-
-        if($sql){
-        header("Location: accueil.php");
-        }
-    }
-?>
 
 </body>
 </html>

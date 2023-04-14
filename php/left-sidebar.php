@@ -12,7 +12,7 @@ $avatar_sidebar = $row["avatar"];
     <li><img class="ico" src="images/avatar.png" alt=""></li>
     <li class="active__menu"><i class="fa fa-home"></i><span><a href="accueil.php">Accueil</a></span></li>
     <li><i class="fa fa-hashtag"></i><span><a href="search_profile.php">Search Profile</a></span></li>
-    <li><i class="far fa-bell"></i><span><a href="classement.php">Classement</a></span></li>
+    <li><i class="far fa-star"></i><span><a href="classement.php">Classement</a></span></li>
     <li><i class="far fa-envelope"></i><span><a href="messagerie.php">Messages</a></span></li>
     <li><i class="fa fa-bookmark"></i><span><a href="badge_creator.php">Badge Creator</a></span></li>
     <li><i class="fa fa-user"></i><span><a href=<?php echo "profil.php?pseudo=$pseudo_sidebar"?>>Profile</a></span></li>

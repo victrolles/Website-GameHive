@@ -51,16 +51,6 @@ ConnectDatabase();
             echo "Ce jeu n'existe pas<br>";
         }
     }
-    
-    if(isset($_GET['del'])){
-        $Del_ID=$_GET['del'];
-        $sql="DELETE FROM post WHERE post_id='$Del_ID'";
-        $post_query=$conn->query($sql);
-
-        if($sql){
-        header("Location: accueil.php");
-        }
-    }
 ?>
 
 </body>
