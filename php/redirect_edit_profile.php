@@ -9,10 +9,12 @@ ModifyEachData("datedenaissance");
 ModifyEachData("description");
 
 if (!CheckExistingPseudo()){
+
     ModifyEachData("pseudo");
 }
 
 if (!CheckExistingEmail()){
+    
     ModifyEachData("email");
 }
 
