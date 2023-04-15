@@ -17,7 +17,7 @@
 .conversations p {
     margin: 1rem;
     padding: 1rem;
-    border: 1px solid #7d7d7d;
+    border: 1px solid #bebebe;
     border-radius: 1rem;
 }
 
@@ -59,6 +59,10 @@
 .conversations .tweet__body {
     padding: 2rem;
     border-top: 1px solid #e0e5e9;
+    position: sticky;
+    bottom: 0;
+    z-index: 999;
+    background-color: #fff;
 }
 
 .conversations .tweet__icons-add, .conversations .button__tweet {
@@ -67,4 +71,30 @@
 
 .conversations #img {
 border: none;
- }
+}
+
+.messagerie .right__sidebar {
+    position: static ;
+    height: auto;
+}
+
+.conversations__header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: #fff;
+}
+
+.texte p{
+    text-decoration: none;
+    color: rgba(209, 196, 15, 0.614);
+    font-weight: 700;
+    font-size: 19px;
+    border : none;
+}
+
+.messagerie .main {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}

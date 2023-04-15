@@ -26,9 +26,9 @@
     font-weight: 700;
 }
 
-.tweet__username, .tweet__date{
-    color: rgba(156, 147, 10, 0.515);
-    font-size: 15px;
+.tweet__name, .tweet__username, .tweet__date{
+    color: rgba(209, 196, 15, 1);
+    font-size: 1.7rem;
 }
 
 .tweet__header p{

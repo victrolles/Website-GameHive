@@ -53,9 +53,9 @@ $data = mysqli_query($conn, $sql);
 
                     ?>
 
-                    <div class="trend">
+                    <div class="trend texte">
                         <span>Trending</span>
-                        <p><?php echo "<a href='search.php?search_texte=$hashtag'>$hashtag</a>";?></p>
+                        <?php echo "<a href='search.php?search_texte=$hashtag'><p>$hashtag</p></a>";?>
                     </div>
 
                 <?php

@@ -30,6 +30,11 @@ $query = "  SELECT
 
 $data = mysqli_query($conn, $query);
 
+function toDate($date) {
+    $date = new DateTime($date);
+    return $date->format('M d, Y - h:i A');
+}
+
 if (isset($_GET['modifyId']) && $_GET['modifyId'] != "" && CheckPostsBelongingToUser($_GET['modifyId'])) {
 
     $modifiedId = $_GET['modifyId'];
@@ -109,6 +114,7 @@ if (isset($_GET['modifyId']) && $_GET['modifyId'] != "" && CheckPostsBelongingTo
     </div>
 
     <?php
+
     while($row=mysqli_fetch_assoc($data))
     {
         $id = $row['id_post'];
@@ -128,13 +134,17 @@ if (isset($_GET['modifyId']) && $_GET['modifyId'] != "" && CheckPostsBelongingTo
             </div>
 
             <div class="tweet__body">
-                <div class="tweet__header">
-                    <p class="tweet__name"><a href="profil.php?pseudo=<?php echo $pseudo; ?>"><?php echo $pseudo; ?></a></p>
-                    <p class="tweet__username"><a href="profil.php?pseudo=<?php echo $pseudo; ?>">@<?php echo $pseudo; ?></a></p>
-                    <p class="tweet__date"><a href="profil.php?pseudo=<?php echo $pseudo; ?>"><?php $date_obj = new DateTime($post_date);
-                                                                                                    $formatted_date = $date_obj->format('M d, Y - h:i A');
-                                                                                                    echo $formatted_date; ?></a></p>
-                </div>
+
+                <a href="profil.php?pseudo=<?php echo $pseudo; ?>">
+
+                    <div class="tweet__header">
+                    
+                        <p class="tweet__name"><?php echo $pseudo; ?></p>
+                        <p class="tweet__date"><?php echo toDate($post_date)?></p>
+                    
+                    </div>
+
+                </a>
 
                 <p class="tweet__text"><?php echo $post_text; ?></p>
 
@@ -185,14 +195,16 @@ if (isset($_GET['modifyId']) && $_GET['modifyId'] != "" && CheckPostsBelongingTo
 
         <div class="tweet__body">
 
-            <div class="tweet__header">
+            <a href="profil.php?pseudo=<?php echo $pseudo; ?>">
 
-                <p class="tweet__name"><a href="profil.php?pseudo=<?php echo $pseudo; ?>"><?php echo $pseudo; ?></a></p>
-                <p class="tweet__username"><a href="profil.php?pseudo=<?php echo $pseudo; ?>">@<?php echo $pseudo; ?></a></p>
-                <p class="tweet__date"><a href="profil.php?pseudo=<?php echo $pseudo; ?>"><?php $date_obj = new DateTime($post_date);
-                                                                                                $formatted_date = $date_obj->format('M d, Y - h:i A');
-                                                                                                echo $formatted_date; ?></a></p>
-            </div>
+                <div class="tweet__header">
+
+                    <p class="tweet__name"><?php echo $pseudo; ?></p>
+                    <p class="tweet__date"><?php echo toDate($post_date)?></p>
+                
+                </div>
+
+            </a>
 
             <p class="tweet__text"><?php echo $post_text; ?></p>
 

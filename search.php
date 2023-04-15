@@ -21,15 +21,39 @@ if (!CheckLogin()){
 
 
 <?php
+
     $search_texte = $_GET['search_texte'];
-    $sql = "SELECT POS.id AS id_post, PRO.pseudo, PRO.avatar, POS.texte, POS.date, POS.image FROM post POS INNER JOIN profil PRO ON POS.id_profil = PRO.id WHERE POS.texte LIKE '%#$search_texte%' ORDER BY date DESC";
+
+    $sql = "SELECT
+                POS.id AS id_post,
+                PRO.pseudo, PRO.avatar,
+                POS.texte,
+                POS.date,
+                POS.image
+            FROM
+                post POS
+            INNER JOIN
+                profil PRO
+                    ON
+                        POS.id_profil = PRO.id
+            WHERE
+                POS.texte LIKE '%#$search_texte%'
+            ORDER BY
+                date DESC";
+    
     $data = mysqli_query($conn, $sql);
 
+    function toDate($date) {
+        $date = new DateTime($date);
+        return $date->format('M d, Y - h:i A');
+    }
 
     echo "<p class='page__title'>Search: #$search_texte</p>";
 
     if (mysqli_num_rows($data) == 0){
+
         echo "<p>No results found</p>";
+
     } else {
 
 
@@ -44,23 +68,31 @@ if (!CheckLogin()){
     ?>
 
     <div class="tweet__box">
+
         <div class="tweet__left">
             <img src="<?php echo $avatar?>" alt="avatar">
         </div>
+
         <div class="tweet__body">
-            <div class="tweet__header">
-                <p class="tweet__name"><a href="profil.php?pseudo=<?php echo $pseudo; ?>"><?php echo $pseudo; ?></a></p>
-                <p class="tweet__username"><a href="profil.php?pseudo=<?php echo $pseudo; ?>">@<?php echo $pseudo; ?></a></p>
-                <p class="tweet__date"><a href="profil.php?pseudo=<?php echo $pseudo; ?>"><?php $date_obj = new DateTime($post_date);
-$formatted_date = $date_obj->format('M d, Y - h:i A');
-echo $formatted_date; ?></a></p>
-            </div>
+
+            <a href="profil.php?pseudo=<?php echo $pseudo; ?>">
+
+                <div class="tweet__header">
+
+                    <p class="tweet__name"><?php echo $pseudo; ?></p>
+                    <p class="tweet__date"><?php echo toDate($post_date)?></p>
+
+                </div>
+
+            </a>
 
             <p class="tweet__text"><?php echo $post_text; ?></p>
 
             <?php
             if (isset($row["image"]) && $row["image"] != ""){
+
                 $row["image"] = str_replace("../", "", $row["image"]);
+                
                 echo "<div class='tweet__image'><img src='$row[image]' alt='Image'></div>";
             }?>
             

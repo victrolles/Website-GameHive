@@ -27,9 +27,7 @@ if (isset($_SESSION["id_friend"])) {
                 OR
                     (id_sender = $_SESSION[id_friend] AND id_receiver = $id_profil)
                 ORDER BY
-                    time DESC
-                LIMIT
-                    4) sub
+                    time DESC) sub
             ORDER BY
                 time ASC";
 
