@@ -20,7 +20,7 @@ $query = "  SELECT
                 id_profil = $id_profil
             OR
                 id_profil IN (  SELECT
-                                    id_profil
+                                    id_followed
                                 FROM
                                     follow
                                 WHERE

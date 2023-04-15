@@ -30,7 +30,9 @@ if (isset($_GET['query'])) {
             AND
                 id_profil2 = PRO.id
             AND
-                PRO.pseudo like '%$profil_receiver%')
+                PRO.pseudo like '%$profil_receiver%'
+            AND
+                accepter = 1)
             OR
                 (id_profil2 = ( SELECT
                                     id
@@ -41,7 +43,9 @@ if (isset($_GET['query'])) {
             AND
                 id_profil1 = PRO.id
             AND
-                PRO.pseudo like '%$profil_receiver%')";
+                PRO.pseudo like '%$profil_receiver%'
+            AND
+                accepter = 1)";
 
 } else {
 
@@ -61,7 +65,9 @@ if (isset($_GET['query'])) {
                                 WHERE
                                     pseudo = '$pseudo')
             AND
-                id_profil2 = PRO.id)
+                id_profil2 = PRO.id
+            AND
+                accepter = 1)
             OR
                 (id_profil2 = (  SELECT
                                     id
@@ -70,7 +76,9 @@ if (isset($_GET['query'])) {
                                 WHERE
                                     pseudo = '$pseudo')
             AND
-                id_profil1 = PRO.id)";
+                id_profil1 = PRO.id
+            AND
+                accepter = 1)";
 }
 
 $result = $conn->query($sql);
