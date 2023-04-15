@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <script src='javascript/searchProfile.js'></script>
 
 <?php 
@@ -8,7 +6,7 @@ session_start();
 include_once "php/database.php";
 
 if (!CheckLogin()){
-    header("location: accueil.php");
+    header("location: login.php");
 }
 
 ?>

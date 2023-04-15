@@ -71,8 +71,18 @@ if (isset($_GET["pseudo"]) && $_GET["pseudo"] != ""){
                     echo "<input type='hidden' name='id_profil' value='$id_profil'>";
                     echo "<input type='hidden' name='pseudo' value='$pseudo'>";
 
-                    if (CheckIfFriend($id_profil, $id_profil2)){
-                        echo "<br><input type='submit' name='submit' value='Unfriend'>";
+                    if (CheckIfFriend($id_profil2, $id_profil)){
+                        if (CheckIfAccepted($id_profil2, $id_profil)){
+                            echo "<br><input type='submit' name='submit' value='Unfriend'>";
+                        } else {
+                            if (CheckIfProfil1SentRequest($id_profil2, $id_profil))
+                            {
+                                echo "<br><input type='submit' name='submit' value='En Attente'>";
+                            }else {
+                                echo "<br><input type='submit' name='submit' value='Accepter'>";
+                            }
+                            
+                        }
                     } else {
                         echo "<br><input type='submit' name='submit' value='Addfriend'>";
                     }

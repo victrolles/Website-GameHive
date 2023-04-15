@@ -45,7 +45,7 @@ if(isset($_POST['btn_add_post'])){
                             <input type="file" id="img" name="post_image" accept="image/png, image/jpeg">
                         </div>
 
-                        <button class="button__tweet" type="submit" name="btn_add_post">Tweet</button>
+                        <button class="button__tweet" type="submit" name="btn_add_post">Post</button>
                     </div>
 
 

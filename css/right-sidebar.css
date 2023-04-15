@@ -53,19 +53,6 @@
     background-color: rgb(231, 233, 235);
 }
 
-.trends__show-more{
-    padding: 15px;
-}
-
-.trends__show-more a{
-    color: var(--twitter-color);
-}
-
-.trends__show-more:hover{
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-}
-
 .trends__body span{
     font-size: 14px;
     color: rgb(101, 119, 134);
@@ -75,7 +62,13 @@
     font-weight: 700;
 }
 
-.trends__header p{
+.trends__footer{
+    display:flex;
+    width: 100%;
+    padding: 15px 15px 10px;
+}
+
+.trends__header p, .trends__footer p{
     width: 100%;
     font-size: 18px;
     font-weight: 900;
@@ -83,5 +76,16 @@
 
 .trends__header .fa-cog{
     color:var(--twitter-color);
+
+}
+
+.decision {
+    padding-left : 2rem;
+}
+
+.decision .fa {
+    color: var(--twitter-color);
+    font-size: 3rem;
+    margin-right: 1rem;
 
 }

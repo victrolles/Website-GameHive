@@ -340,6 +340,33 @@ function CheckIfFriend($id_profil1, $id_profil2){
   }
 }
 
+function CheckIfAccepted($id_profil1, $id_profil2){
+  global $conn;
+  $sql = "SELECT accepter FROM friend WHERE (id_profil1 = $id_profil1 AND id_profil2 = $id_profil2) OR (id_profil1 = $id_profil2 AND id_profil2 = $id_profil1)";
+  $result = $conn->query($sql);
+  $row = $result->fetch_assoc();
+  if (mysqli_num_rows($result) > 0){
+    if ($row["accepter"] == 1){
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+}
+
+function CheckIfProfil1SentRequest($id_profil1, $id_profil2){
+  global $conn;
+  $sql = "SELECT * FROM friend WHERE id_profil1 = $id_profil1 AND id_profil2 = $id_profil2";
+  $result = $conn->query($sql);
+  if (mysqli_num_rows($result) > 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function ModifyEachData($data){
   global $conn;
   $pseudo = $_COOKIE["pseudo"];
