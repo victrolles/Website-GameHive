@@ -172,6 +172,8 @@ if (isset($_GET['game_name']) && isset($_GET['gamemode']) && isset($_GET['classe
     
     $result = $conn->query($sql);
 
+    echo "<div class='table'>";
+
     if ($result->num_rows > 0) {
 
         while($row = $result->fetch_assoc()) {
@@ -180,24 +182,34 @@ if (isset($_GET['game_name']) && isset($_GET['gamemode']) && isset($_GET['classe
             $pseudo = $row["pseudo"];
             $score = $row["score"];
 
-            echo
-            "<div class='friends__lists__item'>
-                <div class='avatar'>
-                    <a href='profil.php?pseudo=$pseudo'>
-                        <img class='ico' src='$avatar' alt='avatar'>
-                    </a>
-                </div>
-                <div class='pseudo'>
-                    <a href='profil.php?pseudo=$pseudo'>
-                        <p>$pseudo</p>
-                    </a>
-                </div>
-                <div class='score'>
-                    <p>$score</p>
-                </div>
-            </div>";
+            echo "  <div class='table__row'>
+
+                        <div class='friends__lists__item left'>
+                            <div class='avatar'>
+                                <a href='profil.php?pseudo=$pseudo'>
+                                    <img class='ico' src='$avatar' alt='avatar'>
+                                </a>
+                            </div>
+                            <div class='pseudo'>
+                                <a href='profil.php?pseudo=$pseudo'>
+                                    <p>$pseudo</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class='score right'>
+                            <p>$score</p>
+                        </div>
+                    </div>";
         }
     }
+
+    echo "      <div class='table__row__end'>
+                    <p>
+                        <br>
+                    </p>
+                </div>
+            </div>";
 }
 
 ?>

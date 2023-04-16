@@ -1,7 +1,7 @@
 (function() {
   
     function searchGames() {
-      const searchBox = document.getElementById('search-box');
+      const searchBox = document.getElementById('game-text');
       const searchQuery = searchBox.value;
       console.log("searching for games with query: " + searchQuery + "");
       // send an AJAX request to the server
@@ -21,12 +21,12 @@
     }
 
     function searchGamemodes() {
-      const searchBox = document.getElementById('search-box2');
+
+      const searchBox = document.getElementById('gamemode-text');
       const searchQuery = searchBox.value;
-      console.log("searching for gamemodes with query: " + searchQuery + "");
+      console.log("searching for gamemodes with query: '" + searchQuery + "'");
 
       const params = new URLSearchParams((window.location.href).split('?')[1]);
-      console.log("params: " + params + "");
       game_name = null;
       if (params.has("game_name")) {
         console.log("true");
@@ -82,6 +82,11 @@
     window.searchGames = searchGames;
     window.searchGamemodes = searchGamemodes;
     window.ClassementResult = ClassementResult;
+
+    document.addEventListener('click', function() {
+      document.getElementById('gamemodes-container').innerHTML = '';
+      document.getElementById('games-container').innerHTML = '';
+    });
   
   })();
     

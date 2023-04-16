@@ -33,21 +33,23 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
 
+    echo "<div class='dropdown-content-game'>";
+
     while($row = $result->fetch_assoc()) {
 
         $id = $row["id"];
         $game_name = $row["nom"];
 
-        echo "  <div class='friends__lists__item'>
+        echo "  <div class='dropdown-content-game__item'>
 
-                    <div class='pseudo'>
                         <a href='classement.php?game_name=$game_name'>
                             <p>$game_name</p>
                         </a>
-                    </div>
                     
                 </div>";
     }
+
+    echo "</div>";
 }
 
 ?>

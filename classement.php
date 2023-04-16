@@ -19,50 +19,49 @@ if (!CheckLogin()){
     
             <?php require_once('php/left-sidebar.php'); ?>
 
-            <div class="main">
+            <div class="main classement">
 
-                <div class="classement">
+                <p class="page__title">Classement</p>
 
-                    <div class="searchgame">
+                <div class="search__bar">
 
-                        <h2 class="page__title">Search a Game</h2>
+                    <div class="left">
 
-                        <div class="tweet__add">
-                            
-                            <div class="search-container ">
+                        <div class="search-container ">
 
-                                <a href="#" class="search-btn">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                                
-                                <input type="text" id="search-box" name="search" oninput="searchGames()" placeholder="Search a Game" class="search-input">
-                            
-                            </div>
+                            <a href="#" class="search-btn">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                            <input type="text" id="gamemode-text" class="search-input" name="search" onclick="searchGamemodes()" oninput="searchGamemodes()" placeholder="Enter your gamemode">
+
                         </div>
+
                     </div>
 
-                    <div class="searchgame">
+                    <div class="right">
 
-                        <h2 class="page__title">Search a Gamemode</h2>
+                        <p>Filter :</p>
 
-                        <div class="tweet__add">
+                        <div class="search-container ">
 
-                            <div class="search-container ">
+                            <a href="#" class="search-btn">
+                                <i class="fa fa-search"></i>
+                            </a>
 
-                                <a href="#" class="search-btn">
-                                    <i class="fa fa-search"></i>
-                                </a>
+                            <input type="text" id="game-text" class="search-input" name="search" onclick="searchGames()" oninput="searchGames()" placeholder="Enter your game">
 
-                                <input type="text" id="search-box2" name="search" oninput="searchGamemodes()" placeholder="Search a Gamemode" class="search-input">
-                            
-                            </div>
                         </div>
+
                     </div>
+
+                    
+
                 </div>
 
-                <div class="friends__lists" id="games-container"></div>
+                <div id="gamemodes-container"></div>
 
-                <div class="friends__lists" id="gamemodes-container"></div>
+                <div id="games-container"></div>
 
                 <?php
 
@@ -70,14 +69,35 @@ if (!CheckLogin()){
 
                     if ($_GET['game_name'] != "" && $_GET['gamemode'] != "") {
 
-                        echo "  <div class='select' oninput='ClassementResult()'>
+                        ?>
+
+                        <div class="classement__infos">
+
+                            <div class="left">
+                                    
+                                    <p>Game : <?php echo $_GET['game_name']?></p>
+    
+                                    <p>Gamemode : <?php echo $_GET['gamemode']?></p>
+
+                            </div>
+
+                            <div class="right">
+
+                                <div class='select' oninput='ClassementResult()'>
                                     <select id='classement-select'>
                                         <option value='0' selected>Global</option>
                                         <option value='1'>Friends</option>
                                         <option value='2'>Followings</option>
                                         <option value='3'>Followers</option>
                                     </select>
-                                </div>";
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        
+                        <?php            
                     }
                 }
                 ?>
