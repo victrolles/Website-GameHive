@@ -34,6 +34,13 @@ if (isset($_GET["pseudo"]) && $_GET["pseudo"] != ""){
 
     header("location: accueil.php");
 }
+
+$numberOfFriends = GetNumberOfFriends($id_profil);
+$numberOfBadges = GetNumberOfBadges($id_profil);
+$numberOfPosts = GetNumberOfPosts($id_profil);
+$numberOfFollowers = GetNumberOfFollowers($id_profil);
+$numberOfFollowings = GetNumberOfFollowings($id_profil);
+
 ?>
 
 <?php include "php/header.php"; ?>
@@ -48,51 +55,96 @@ if (isset($_GET["pseudo"]) && $_GET["pseudo"] != ""){
 
         <div class="container">
 
-            <?php 
+            <div class="profile__infos">
 
-                $numberOfFriends = GetNumberOfFriends($id_profil);
-                $numberOfBadges = GetNumberOfBadges($id_profil);
-                $numberOfPosts = GetNumberOfPosts($id_profil);
-                $numberOfFollowers = GetNumberOfFollowers($id_profil);
-                $numberOfFollowings = GetNumberOfFollowings($id_profil);
+                <div class="left">
 
-                echo "  <p>Prénom : $prenom</p>
-                        <br>
-                        <p>Nom : $nom</p>
-                        <br>
-                        <p>Pseudo : $pseudo</p>
-                        <br>
-                        <p>Description : $description</p>
-                        <br>
-                        <img class='ico' src='$avatar' alt='avatar'>
-                        <br>
-                        <p>Nombre d'amis : $numberOfFriends</p>
-                        <br>
-                        <p>Nombre de badges : $numberOfBadges</p>
-                        <br>
-                        <p>Nombre de posts : $numberOfPosts</p>
-                        <br>
-                        <p>Nombre de followers : $numberOfFollowers</p>
-                        <br>
-                        <p>Nombre de followings : $numberOfFollowings</p>
-                        <br>";
+                    <img class='ico' src='<?php echo $avatar ?>' alt='avatar'>
 
-                if ($pseudo == $_COOKIE["pseudo"]){
+                    <h2>Informations</h2>
 
-                    echo "  Date de naissance : $datedenaissance
-                            <br>Email : $email<br>";
-                }
+                    <p><?php echo $prenom . " " . $nom; ?></p>
+
+                    <p><?php echo $pseudo; ?></p>
+
+                    <p><?php echo $description; ?></p>
+
+                </div>
+
+                <div class="right">
+
+                    <?php
+
+                    if ($pseudo == $_COOKIE["pseudo"]){
+
+                        echo "  <div class='profile__edit'>
+                                    <i class='far fa-edit'></i>
+                                    <a href='edit_profile.php'>
+                                        <p>Edit profile</p>
+                                    </a>
+                                </div>";
+                    }
+
+                    require_once('php/display_badges.php');
+                    
+                    ?>
+
+                </div>
+
+            </div>
+
+            <h2>Statistiques</h2>
+
+            <div class="profile__stats">
+
+                <div class="left">
+
+                    <p>Amis : <?php echo $numberOfFriends; ?></p>
+
+                    <p>Badges débloqués: <?php echo $numberOfBadges; ?></p>
+
+                    <p>Posts : <?php echo $numberOfPosts; ?></p>
+
+                </div>
+
+                <div class="right">
+
+                    <p>Followers : <?php echo $numberOfFollowers; ?></p>
+
+                    <p>Followings : <?php echo $numberOfFollowings; ?></p>
+
+                </div>
+
+            </div>
+
+            <?php
+
+            if ($pseudo == $_COOKIE["pseudo"]){
+
+                echo "  <h2>Infos Complémentaires</h2>
+
+                        <p>Date de naissance : $datedenaissance</p>
+
+                        <p>Email : $email</p>";
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+             
+
+                
                 
 
-                require_once('php/display_badges.php');
-
-                if ($pseudo == $_COOKIE["pseudo"]){
-
-                    echo "  <br>
-                            <a href='edit_profile.php'>
-                                <p>Edit profile</p>
-                            </a>";
-                }
+                
 
                 if ($pseudo != $_COOKIE["pseudo"]){
 
@@ -106,37 +158,31 @@ if (isset($_GET["pseudo"]) && $_GET["pseudo"] != ""){
 
                         if (CheckIfAccepted($id_profil2, $id_profil)){
 
-                            echo "  <br>
-                                    <input type='submit' name='submit' value='Unfriend'>";
+                            echo "<input class = 'button__tweet' type='submit' name='submit' value='Unfriend'>";
 
                         } else {
                             if (CheckIfProfil1SentRequest($id_profil2, $id_profil))
                             {
-                                echo "  <br>
-                                        <input type='submit' name='submit' value='En Attente'>";
+                                echo "<input class = 'button__tweet' type='submit' name='submit' value='En Attente'>";
 
                             }else {
 
-                                echo "  <br>
-                                        <input type='submit' name='submit' value='Accepter'>";
+                                echo "<input class = 'button__tweet' type='submit' name='submit' value='Accepter'>";
                             }
                             
                         }
                     } else {
 
-                        echo "  <br>
-                                <input type='submit' name='submit' value='Addfriend'>";
+                        echo "<input class = 'button__tweet' type='submit' name='submit' value='Addfriend'>";
                     }
 
                     if (CheckIfFollowing($id_profil2, $id_profil)){
 
-                        echo "  <br>
-                                <input type='submit' name='submit' value='Unfollow'>";
+                        echo "<input class = 'button__tweet' type='submit' name='submit' value='Unfollow'>";
 
                     } else {
 
-                        echo "  <br>
-                                <input type='submit' name='submit' value='Follow'>";
+                        echo "<input class = 'button__tweet' type='submit' name='submit' value='Follow'>";
                     }
 
                     echo "</form>";

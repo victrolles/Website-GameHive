@@ -7,3 +7,60 @@
     background-color: #e6e6e6;
     border-radius: 50%;
 }
+
+.profile .profile__infos .left .ico {
+    width : 10rem;
+    height: 10rem;
+}
+
+.profile .profile__infos, .profile .profile__stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile .profile__infos .right {
+    width: 25rem;
+}
+
+.profile .profile__edit {
+    display: flex;
+    justify-content: left;
+    margin : 0rem 0rem 10rem 6rem;
+    padding: 0;
+    text-align: left;
+}
+
+.profile .profile__edit .far{
+    width : 3rem;
+    height: 3rem;
+    font-size: 3rem;
+
+}
+
+.profile h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0f1010;
+    margin: 2rem 0rem;
+}
+
+.profile p {
+    padding: 1rem 3rem;
+    color: rgba(209, 196, 15, 0.822);
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.profile .page__title {
+    font-weight: 900;
+    font-size: 2rem;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--twitter-background);
+    background-color: #fff;
+    color : #0f1010;
+}
+
+.profile .button__tweet {
+    margin: 2rem 3rem;
+}

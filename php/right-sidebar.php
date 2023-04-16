@@ -1,25 +1,23 @@
 <?php
 
-$sql = "SELECT
-            SUBSTRING(tag, 2) AS hashtag,
-            COUNT(*) AS count
-        FROM
-            (SELECT DISTINCT
-                SUBSTRING_INDEX(SUBSTRING_INDEX(texte, ' ', numbers.n), ' ', -1) AS tag
-            FROM
-                post
-            CROSS JOIN
-                (SELECT 1 n UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5) numbers
-            WHERE
-                CHAR_LENGTH(texte) - CHAR_LENGTH(REPLACE(texte, ' ', '')) + 1 >= numbers.n) tags
+$sql = "SELECT 
+            SUBSTRING(tag, 2) AS hashtag, 
+            COUNT(*) AS count 
+        FROM (  SELECT 
+                    SUBSTRING_INDEX(SUBSTRING_INDEX(texte, ' ', numbers.n), ' ', -1) AS tag 
+                FROM 
+                    post 
+                CROSS JOIN
+                    (SELECT 1 n UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5) numbers 
+                WHERE
+                    CHAR_LENGTH(texte) - CHAR_LENGTH(REPLACE(texte, ' ', '')) + 1 >= numbers.n) tags 
         WHERE
-            tag REGEXP '^#[a-zA-Z0-9_]+$'
+            tag REGEXP '^#[a-zA-Z0-9_]+$' 
         GROUP BY
-            hashtag
+            hashtag 
         ORDER BY
-            count DESC
-        LIMIT
-            3;";
+            count DESC 
+        LIMIT 3;";
 
 $data = mysqli_query($conn, $sql);
 

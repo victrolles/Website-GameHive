@@ -33,7 +33,7 @@ if (!CheckLogin()){
                                 <i class="fa fa-search"></i>
                             </a>
 
-                            <input type="text" id="search-box" name="search" placeholder="Search Profile" class="search-input">
+                            <input type="text" id="search-box" name="search" oninput="searchProfiles()" placeholder="Search Profile" class="search-input">
 
                         </div>
 

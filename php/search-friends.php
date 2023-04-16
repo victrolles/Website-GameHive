@@ -13,72 +13,33 @@ if (isset($_GET['query'])) {
     $profil_receiver = $_GET['query'];
 
     $sql = "SELECT
-                PRO.id,
-                PRO.pseudo,
-                PRO.avatar
-            FROM
-                profil PRO
-            inner join
-                friend FRD
-            WHERE
-                (id_profil1 = ( SELECT
-                                    id
-                                FROM
-                                    profil
-                                WHERE
-                                    pseudo = '$pseudo')
-            AND
-                id_profil2 = PRO.id
-            AND
-                PRO.pseudo like '%$profil_receiver%'
-            AND
-                accepter = 1)
-            OR
-                (id_profil2 = ( SELECT
-                                    id
-                                FROM
-                                    profil
-                                WHERE
-                                    pseudo = '$pseudo')
-            AND
-                id_profil1 = PRO.id
-            AND
-                PRO.pseudo like '%$profil_receiver%'
-            AND
-                accepter = 1)";
+            PRO.id,
+            PRO.pseudo,
+            PRO.avatar,
+            MAX(MSG.time) as last_message_time
+        FROM
+            profil PRO
+        INNER JOIN
+            friend FRD ON (
+                (id_profil1 = $id_profil
+                 AND id_profil2 = PRO.id AND accepter = 1 AND
+                    PRO.pseudo like '%$profil_receiver%')
+                 OR
+                (id_profil2 = $id_profil
+                 AND id_profil1 = PRO.id AND accepter = 1 AND
+                    PRO.pseudo like '%$profil_receiver%')
+            )
+        LEFT JOIN
+            message MSG ON (
+                MSG.id_sender = PRO.id AND MSG.id_receiver = $id_profil
+            ) OR (
+                MSG.id_sender = $id_profil AND MSG.id_receiver = PRO.id
+            )
+        GROUP BY
+            PRO.id, PRO.pseudo, PRO.avatar
+        ORDER BY
+            last_message_time DESC";
 
-} else {
-
-    $sql = "SELECT
-                PRO.id,
-                PRO.pseudo,
-                PRO.avatar
-            FROM
-                profil PRO
-            inner join
-                friend FRD
-            WHERE
-                (id_profil1 = (  SELECT
-                                    id
-                                FROM
-                                    profil
-                                WHERE
-                                    pseudo = '$pseudo')
-            AND
-                id_profil2 = PRO.id
-            AND
-                accepter = 1)
-            OR
-                (id_profil2 = (  SELECT
-                                    id
-                                FROM
-                                    profil
-                                WHERE
-                                    pseudo = '$pseudo')
-            AND
-                id_profil1 = PRO.id
-            AND
-                accepter = 1)";
 }
 
 $result = $conn->query($sql);
