@@ -248,19 +248,37 @@ if (isset($_GET['modifyId']) && $_GET['modifyId'] != "" && CheckPostsBelongingTo
 
                 <div class="dropdown-content">
 
-                    <a href="accueil.php?del=<?php echo $id; ?>">
-                        <i class="far fa-trash-alt"></i>
-                        <span>
-                            <p>Delete</p>
-                        </span>
-                    </a>
-                    <a href="accueil.php?modifyId=<?php echo $id; ?>">
-                        <i class="far fa-edit"></i>
-                        <span>
-                            <p>Modifier</p>
-                        </span>
-                    </a>
-                
+                        <a href="accueil.php?del=<?php echo $id; ?>">
+
+                            <div class="colorRed">
+
+                                <i class="far fa-trash-alt"></i>
+
+                                <span>
+                                    <p>Delete</p>
+                                </span>
+
+                            </div>
+
+                        </a>
+
+                    
+
+                    
+
+                        <a href="accueil.php?modifyId=<?php echo $id; ?>">
+
+                            <div class="colorOrange">
+
+                                <i class="far fa-edit"></i>
+
+                                <span>
+                                    <p>Modifier</p>
+                                </span>
+
+                            </div>
+                        </a>
+
                 </div>
             </div>
         </div>
