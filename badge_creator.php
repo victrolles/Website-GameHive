@@ -1,6 +1,5 @@
 <?php
 
-include_once "php/header.php";
 include "php/database.php";
 
 ConnectDatabase();
@@ -8,6 +7,13 @@ ConnectDatabase();
 ?>
 
 <html>
+
+    <head>
+        <link rel="stylesheet" href="css/signup.css">
+    </head>
+
+    <?php include_once "php/header.php"; ?>
+
     <body>
 
         <div class="grid-container">
@@ -20,9 +26,7 @@ ConnectDatabase();
 
                 <div class="container">
 
-                    <section class="form badge_creator">
-
-                        <header>Badge Creator</header>
+                    <section class="form signup badge_creator">
 
                         <form method="post" enctype="multipart/form-data">
 

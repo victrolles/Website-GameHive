@@ -179,7 +179,6 @@ function Verify_pseudo_password(){
 
     } else {
 
-      echo "Pseudo ou mot de passe incorrect <br>";
       return false;
     }
   }
@@ -649,7 +648,7 @@ function ModifyEachData($data){
 
   if (isset($_POST[$data]) && $_POST[$data] != ""){
 
-    $value = $_POST[$data];
+    $value = mysqli_real_escape_string($conn, $_POST[$data]);
 
     $sql = "UPDATE
               profil

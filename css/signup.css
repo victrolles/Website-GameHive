@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(../images/font.jpg);
+}
+
+.logo{
+    width: 10rem;
+}
+
+.wrapper {
+    width: 500px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.wrapper header {
+    font-size: 32px;
+    font-weight: 600;
+    /* color: #1da1f2; */
+    color:rgb(209, 196, 15);
+    padding: 20px 30px;
+    border-bottom: 1px solid #e6ecf0;
+    margin-bottom: 10px;
+}
+
+.form {
+    padding: 30px;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e6ecf0;
+    border-radius: 5px;
+    background-color: #f5f8fa;
+    font-size: 16px;
+    font-weight: 400;
+    color: #1c1e21;
+    outline: none;
+}
+
+.field input[type="file"] {
+    border: none;
+    background-color: transparent;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+    color: #aab8c2;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1c1e21;
+}
+
+.field.image label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.field.image label:hover {
+    opacity: 0.7;
+}
+
+.field.button input[type="submit"] {
+    /* background-color: #1da1f2; */
+    background-color:rgb(209, 196, 15);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.link {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #aab8c2;
+    text-align: center;
+}
+
+.link a {
+    color: #1da1f2;
+    text-decoration: none;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+    .wrapper {
+        width: 90%;
+    }
+}
+
+.report{
+    padding: 20px 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color:rgb(209, 196, 15);
+    border-bottom: 1px solid #e6ecf0;
+    text-align: center;
+}

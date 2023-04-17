@@ -9,6 +9,10 @@ if (!CheckLogin()){
 ?>
 <html lang="fr">
 
+    <head>
+        <link rel="stylesheet" href="css/signup.css">
+    </head>
+
     <?php include "php/header.php";?>
     
     <body>
@@ -16,13 +20,13 @@ if (!CheckLogin()){
     
             <?php require_once('php/left-sidebar.php'); ?>
 
-            <div class="main">
+            <div class="main form signup">
 
                 <div class="title">
                     <h1>Modifier mon profil</h1>
                 </div>
 
-                <div class="instruction">
+                <div class="report">
                     <p>Modifier seulement les éléments nécéssaires</p>
                     <p>Les données non remplis ne seront donc pas modifié !</p>
                 </div>
