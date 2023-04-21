@@ -33,7 +33,7 @@
 }
 
 .classement .search__bar p, .classement .classement__infos p {
-    color: rgba(209, 196, 15, 0.822);
+    color: var(--twitter-text-color);
     font-weight: 700;
     font-size: 1.7rem;
     padding: 1rem;

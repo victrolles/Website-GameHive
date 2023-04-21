@@ -13,6 +13,9 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 $avatar_sidebar = $row["avatar"];
 
+$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$fileName = pathinfo($path, PATHINFO_FILENAME);
+
 ?>
 
 <div class="sidebar">
@@ -21,7 +24,7 @@ $avatar_sidebar = $row["avatar"];
         <li>
             <img class="ico" src="images/avatar.png" alt="">
         </li>
-        <li class="active__menu">
+        <li class="<?php echo ($fileName == 'accueil') ? 'active__menu' : ''; ?>">
             <i class="fa fa-home"></i>
             <span>
                 <a href="accueil.php">
@@ -29,7 +32,7 @@ $avatar_sidebar = $row["avatar"];
                 </a>
             </span>
         </li>
-        <li>
+        <li class="<?php echo ($fileName == 'search_profile') ? 'active__menu' : ''; ?>">
             <i class="fa fa-hashtag"></i>
             <span>
                 <a href="search_profile.php">
@@ -37,7 +40,7 @@ $avatar_sidebar = $row["avatar"];
                 </a>
             </span>
         </li>
-        <li>
+        <li class="<?php echo ($fileName == 'classement') ? 'active__menu' : ''; ?>">
             <i class="far fa-star"></i>
             <span>
                 <a href="classement.php">
@@ -45,7 +48,7 @@ $avatar_sidebar = $row["avatar"];
                 </a>
             </span>
         </li>
-        <li>
+        <li class="<?php echo ($fileName == 'messagerie') ? 'active__menu' : ''; ?>">
             <i class="far fa-envelope"></i>
             <span>
                 <a href="messagerie.php">
@@ -53,7 +56,7 @@ $avatar_sidebar = $row["avatar"];
                 </a>
             </span>
         </li>
-        <li>
+        <li class="<?php echo ($fileName == 'badge_creator') ? 'active__menu' : ''; ?>">
             <i class="fa fa-bookmark"></i>
             <span>
                 <a href="badge_creator.php">
@@ -61,7 +64,7 @@ $avatar_sidebar = $row["avatar"];
                 </a>
             </span>
         </li>
-        <li>
+        <li class="<?php echo ($fileName == 'profil') ? 'active__menu' : ''; ?>">
             <i class="fa fa-user"></i>
             <span>
                 <a href=<?php echo "profil.php?pseudo=$pseudo_sidebar"?>>

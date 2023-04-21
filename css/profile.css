@@ -47,7 +47,7 @@
 
 .profile p {
     padding: 1rem 3rem;
-    color: rgba(209, 196, 15, 0.822);
+    color: var(--twitter-text-color);
     font-weight: 700;
     font-size: 2rem;
 }

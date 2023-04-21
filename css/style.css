@@ -9,6 +9,7 @@
 :root{
     --twitter-color: #cbd81c;
     --twitter-background: #e6ecf0;
+    --twitter-text-color: rgb(209, 196, 15);
 }
 
 html {
@@ -44,14 +45,18 @@ textarea{
 }
 
 
-.sidebar, .main{
+.sidebar{
     border-right: 1px solid var(--twitter-background);
+}
+
+.right__sidebar {
+    border-left: 1px solid var(--twitter-background);
 }
 
 .grid-container{
     display: grid;
     width: 100%;
-    max-width: 1350px;
+    max-width: 1850px ;/*1350px;*/
     margin: 0 auto;
     grid-template-columns: 0.8fr 1.4fr 1.1fr;
     grid-template-rows: 0.8fr 1.5fr 1fr;
@@ -66,12 +71,46 @@ textarea{
 .main{ grid-area: main;}
 .right__sidebar{ grid-area: right__sidebar;}
 
+
+/*design improvements*/
+.sidebar, .right__sidebar {
+    background-color: #f8f8f8;
+    border-radius: 2rem;
+}
+
+.messagerie .main {
+    background-color: #f8f8f8;
+    border-radius: 2rem;
+}
+
+.messagerie .right__sidebar {
+    background-color: #ffffff;
+    border-radius: none;
+}
+
+.messagerie .conversations__header, .messagerie .tweet__body {
+    background-color: #f8f8f8;
+}
+
+#msg {
+    border-radius: 1rem;
+}
+
+.trends__box {
+    border: 1px solid var(--twitter-background);
+}
+
+.profile .container {
+    margin: 2rem;
+}
+/*design improvements end */
+
 .page__title{
     font-weight: 900;
     font-size: 20px;
     padding: 15px 20px;
     border-bottom: 1px solid var(--twitter-background);
-    background-color: #fff;
+    /* background-color: #fff; */
     position: sticky;
     top: 0;
     z-index: 999;

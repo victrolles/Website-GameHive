@@ -27,7 +27,7 @@
 }
 
 .tweet__name, .tweet__username, .tweet__date{
-    color: rgba(209, 196, 15, 1);
+    color: var(--twitter-text-color);
     font-size: 1.7rem;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .tweet__icons i{
-    color: rgba(209, 196, 15, 0.614);
+    color: var(--twitter-text-color);
 }
 
 .tweet__icons-wrapper{

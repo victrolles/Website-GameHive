@@ -97,7 +97,7 @@ if(isset($_SESSION['id_friend'])){
 
                                 <form id="message-form" enctype="multipart/form-data">
 
-                                    <textarea name="message" id="msg" cols="100%" rows="2" placeholder="Write your message"></textarea>
+                                    <textarea name="message" id="msg" cols="100%" rows="2" placeholder="     Write your message"></textarea>
 
                                     <div class="tweet__icons-wrapper">
 

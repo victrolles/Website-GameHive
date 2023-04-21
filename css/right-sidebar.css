@@ -6,6 +6,10 @@
 }
 
 .search-container{
+    display:flex;
+    align-items: center;
+    justify-content: left;
+    
     background-color: var(--twitter-background);
     border-radius: 30px;
     padding:10px;
@@ -30,7 +34,7 @@
 }
 
 .trends__box{
-    background-color: rgb(245, 248, 250);
+    background-color: white;/*rgb(245, 248, 250);*/
     border-radius: 15px;
     margin: 15px auto;
     width: 80%;

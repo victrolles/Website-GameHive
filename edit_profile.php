@@ -27,8 +27,8 @@ if (!CheckLogin()){
                 </div>
 
                 <div class="report">
-                    <p>Modifier seulement les éléments nécéssaires</p>
-                    <p>Les données non remplis ne seront donc pas modifié !</p>
+                    <p>Modifier seulement les éléments nécessaires</p>
+                    <p>Les données non remplies ne seront donc pas modifiées !</p>
                 </div>
 
                 <form action="php/redirect_edit_profile.php" method="POST" enctype="multipart/form-data">

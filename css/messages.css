@@ -9,7 +9,7 @@
 
 .pseudo a , .name, #img, .container{
     text-decoration: none;
-    color: rgba(209, 196, 15, 0.614);
+    color: var(--twitter-text-color);
     font-weight: 700;
     font-size: 19px;
 }
@@ -87,7 +87,7 @@ border: none;
 
 .texte p{
     text-decoration: none;
-    color: rgba(209, 196, 15, 0.614);
+    color: var(--twitter-text-color);
     font-weight: 700;
     font-size: 19px;
     border : none;

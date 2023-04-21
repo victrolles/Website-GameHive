@@ -21,20 +21,28 @@
 .sidebar ul li{
     text-decoration: none;
     padding: 15px 60px;
-    color: rgba(209, 196, 15, 0.614);
+    /*color: var(--twitter-text-color);*/
     font-weight: 700;
     font-size: 19px;
     align-items: center;
     display: flex;
 }
 
+.sidebar ul li p {
+    color:black;
+}
+
+.sidebar .active__menu, .sidebar .active__menu p{
+    color: var(--twitter-text-color);
+}
+
 .sidebar ul li:hover {
-    background-color: #f5f8fa;
+    background-color: var(--twitter-background);/* #f5f8fa;*/
 }
 
 .sidebar .profile__info, .sidebar ul a {
     text-decoration: none;
-    color: rgba(209, 196, 15, 0.614);
+    color: var(--twitter-text-color);
     font-weight: 700;
     font-size: 19px;
 }

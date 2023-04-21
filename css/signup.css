@@ -29,7 +29,7 @@ body {
     font-size: 32px;
     font-weight: 600;
     /* color: #1da1f2; */
-    color:rgb(209, 196, 15);
+    color:var(--twitter-text-color);
     padding: 20px 30px;
     border-bottom: 1px solid #e6ecf0;
     margin-bottom: 10px;
@@ -87,7 +87,7 @@ body {
 
 .field.button input[type="submit"] {
     /* background-color: #1da1f2; */
-    background-color:rgb(209, 196, 15);
+    background-color:var(--twitter-text-color);
     color: #fff;
     font-weight: 600;
     cursor: pointer;
