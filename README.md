@@ -31,7 +31,7 @@ Pour un design optimal, il est conseillé de l'ouvrir sur **Google Chrome** (Fir
 
 ### Site WEB :
 
-- Réalisé en HTML, CSS, PHP, Javascript (ajax).
+- Réalisé en HTML, CSS, PHP, Javascript (ajax), SQL.
 - Réalisé par les débutants **Victor Goudal** et **Osman Gaygusuz**.
 - Réalisé sur le navigateur **Google Chrome**.
 - Réalisé avec l'outil **XAMPP**.
@@ -50,9 +50,15 @@ En plus d'avoir regardé des vidéos Youtube de Dgeo Dev et d'autres et des foru
 
 Nous avons, ensemble, brainstormé sur les fonctionnalités, réalisé les designs des modifications et fonctionnalités apportées sur papier et réalisé une première version de la base de donnée sur Creately.
 
-- **Victor** : **Victor : TODO**
+- **Osman** :
+  - Dessiné le logo GameHive
+  - Réalisé l'HTML et le CSS des pages (accueil.php et index.php)
+  - Repris le PHP des pages **login.php et signup.php** (Victor) pour y implémenter le CSS.
+  
 
-- **Osman** : **Osman : TODO**
+- **Victor** :
+  - Réalisé tout le **PHP, Javascript et AJAX** du site
+  - Repris le CSS des pages **signup.php et accueil.php** (Osman) pour faire le **CSS de toutes les autres pages**.
 
 ## Information concernant la composition du site (BDD, fonctionnalités) :
 
@@ -75,7 +81,7 @@ Voici ci-dessous la structure de la base de donnée faite sur Creately :
 
 ![bdd_creately](https://user-images.githubusercontent.com/95492416/234591519-89c3b318-7e79-46ce-b2a6-f9e2d03abd1e.png)
 
-### Détails / Fonctionnalités importantes et notables:
+## Détails / Fonctionnalités importantes et notables:
 
 Mis à part les pages index.php, login.php et signup.php, toutes les pages possèdes des inclusions d'autres fichiers php. La plus récurrentes est le ```require_once``` du **header.php**, du **left-sidebar.php** et du **right-sidebar.php** qui se trouves dans quasi toutes les pages.
 
@@ -83,15 +89,15 @@ Comme on peut le voir sur la page principale ci-dessous où l'on voit qu'elle es
 
 ![accueil](https://user-images.githubusercontent.com/95492416/234594804-5124268e-819e-46ee-9893-849703c59884.png)
 
-#### Page principale :
+### Page principale (accueil.php) :
 
 La page principale, comme son nom l'indique possède le plus de fonctionnalité. On parlera aussi des fonctionnalités des **sidebars** sur cette page car elles sont équivalentes sur les **sidebars** de toutes les pages Web.
 
-##### Left-sidebar :
+#### Left-sidebar :
 
 - La couleur de la page sur laquel on est, permet à l'utilisateur de savoir sur quelle page il se trouve, on recupère l'information du lien grace à des fonctions **parse-url** et **path_info** : ![colorleftsidebar](https://user-images.githubusercontent.com/95492416/234600266-0291906c-dbca-4701-8e06-f4c3ed955b95.png)
 
-##### Right-sidebar :
+#### Right-sidebar :
 
 - La barre de recherche est fonctionnel et redirige vers la page **search.php** qui affiche tous les posts contenant le **mot-clé recherché** : ![searchrightsidebar](https://user-images.githubusercontent.com/95492416/234601812-f82adf61-6c37-4889-8aff-65a76f4b18a7.png)
 
@@ -99,8 +105,38 @@ La page principale, comme son nom l'indique possède le plus de fonctionnalité.
  
 - Un raccourcie a été créé pour recevoir la notification et accepter les demandes d'amis (Il est aussi possible d'accepter les demandes d'amis en allant sur le profil du joueur) : ![demandeamisrightsidebar](https://user-images.githubusercontent.com/95492416/234604924-61bba786-e016-466d-8928-db5aebd8990b.png)
 
-##### Main or Midbar :
+#### Main or Midbar :
 
-- Seul la bar du millieu peut-être scrollée.
+- Seul la bar du milieu peut-être scrollée.
 - Seul tes posts et les posts des gens que tu follow apparaissent.
+- On peut **cliquer les pseudo pour voir leur profil**.
 - Les posts t'appartenant peuvent être modifiés ou supprimés en déplacant la souris sur les **...**, ce qui affhiche les 2 boutons : ![deletemain](https://user-images.githubusercontent.com/95492416/234606682-4ab9f578-47fe-467a-89af-2f1ba7084de4.png)
+
+### recherche de profil (search_profile.php) :
+
+- On peut trié les profils en rentrant les premières lettres dans la bar de recherche, on a utilisé **Ajax** pour le faire de manière dynamique : ![searchprofile](https://user-images.githubusercontent.com/95492416/234611811-bc281dd8-ca19-45e7-923a-78dfcd2f93eb.png)
+
+### classement (classement.php) :
+
+La page classement permet aux joueurs de se comparer sur différents jeux et sur des modes de jeux comme par exemple les modes (multi ou classé), (solo, duo, trio, squad) sur les jeux multijoueurs.
+
+- Grace à **Ajax**, on peut utiliser de manière dynamique la bar de recherche **Gamemode** et la bar de recherche filtre **Game** pour d'abord ou non trié par jeux et ensuite trouver le mode de jeux en question. Les propositions sont toutes affichées dans une division avec un scroll
+
+- Puis grace à **Ajax** et **un Select**, on peut se **comparer avec ses amis, ses followers, ses followings et le global** : ![select](https://user-images.githubusercontent.com/95492416/234614994-d8cbf16a-b266-44d3-8851-aa8c1ac2b131.png)
+
+- Les informations du jeu et gamemode sont affichées dans le lien pour permettre à l'utilisateur de pouvoir directement modifier s'il le souhaite.
+
+### messagerie privée et instantanée (messagerie.php) :
+
+- Si on a beaucoup d'amis, on peut rechercher de manière dynamique un amis.
+- Tous les messages d'une conversation sont affichés et on peut scroll dans les messages.
+- On peut cliquer sur le pseudo dans la conversation pour être rediregier vers son profile.
+- On a système de notification qui check toutes les 2s et si t'es en conversation avec la personne, met à jour automatiquement les messages sinon affiche une cloche à côté du pseudo en question :  ![notif](https://user-images.githubusercontent.com/95492416/234623546-bef315f4-5633-45ac-b2d5-d128fff1046b.png)
+
+### profil (profil.php) :
+
+- Les badges sont des trophées acquis dans les jeux vidéos que tu peux mettre en avant dans ton profil. Si tu es l'auteur tu peux les changer comme montrer ci-dessous : ![badge](https://user-images.githubusercontent.com/95492416/234624612-1ac672fd-95ae-466a-9b12-7b5d82346693.png)
+
+## Conclusion :
+
+Ce projet nous aura été hyper enrichissant pour découvrir les bases du web tel que le fonctionnement du PHP, JS, Ajax, CSS, SQL. On a vraiment pu réaliser un site complet, fonctionnel et ergonomique, ce qui nous permettra d'avoir un projet concret et solide en WEB.
