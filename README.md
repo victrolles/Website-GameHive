@@ -39,12 +39,31 @@ Nous nous sommes inspirés de 2 vidéos pour le CSS du site :
 
 ### Aides complémentaires :
 
-En plus d'avoir regardé des vidéos Youtube de Dgeo Dev et d'autres et des forums comme StackOverflow pour la globalité du projet, je (Victor Goudal) me suis fait aider par **ChatGPT** pour découvrir, apprendre et réalisé la partie Ajax et donc réalisé dans un premier temps la messagerie instantanée.
+En plus d'avoir regardé des vidéos Youtube de Dgeo Dev et d'autres et des forums comme StackOverflow pour la globalité du projet, je (Victor Goudal) me suis fait aider par **ChatGPT** pour découvrir, apprendre et réalisé la partie Ajax et donc réalisé dans un premier temps la messagerie instantanée. J'ai tout de même très restreint son utilisation dans le reste du projet (différentes fichiers PHP, CSS, SQL).
 
 ### Répartition des tâches :
 
 Nous avons, ensemble, brainstormé sur les fonctionnalités, réalisé les designs des modifications et fonctionnalités apportées sur papier et réalisé une première version de la base de donnée sur Creately.
 
-- **Victor** :
+- **Victor** : **Victor : TODO**
 
 - **Osman** : **Osman : TODO**
+
+## Information concernant la composition du site (BDD, fonctionnalités) :
+
+Nous avons donc réalisé le site web d'un réseau social comportant de nombreuses pages commune pour réseau social et d'autres par rapport au thème des jeux vidéos. Voici toutes les pages :
+- La page **d'accueil ou d'arrivée** des nouveaux arrivant (index.php)
+- La page de **création de compte** (signup.php)
+- La page de **connexion** (login.php)
+- La page **principale** du compte (accueil.php)
+- La page de **recherche de profil** (search_profile.php)
+- La page de **classement** (classement.php)
+- La page de **messagerie** privée et instantanée (messagerie.php)
+- La page de **création de badge** (badge_creator.php)
+- La page **profil** (profil.php)
+- La page de **recherche de post** (search.php)
+- La page pour **éditer son profil** (edit_profile.php)
+
+### La base de donnée :
+
+Voici ci-dessous 
