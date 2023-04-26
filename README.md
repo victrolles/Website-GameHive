@@ -15,7 +15,7 @@ Lien Projet : https://github.com/victrolles/Website-GameHive
 ## Introduction :
 
 En lien avec l'UV WE4A, nous avons réalisé un **réseau social** sur le thème des **jeux vidéos**.
-Nous nous sommes inspirés du réseau social **Twitter** et nous y avons ajouté **notre touche personnel** et **quelques fonctionnalités** en rapport avec le thème des jeux vidéos.
+Nous nous sommes inspirés du réseau social **Twitter** et nous y avons ajouté **notre touche personnelle** et **quelques fonctionnalités** par rapport au thème des jeux vidéos.
 
 ## Informations concernant l'execution du projet :
 
@@ -121,7 +121,7 @@ La page principale, comme son nom l'indique possède le plus de fonctionnalité.
 - Seul la bar du milieu peut-être scrollée.
 - Seul tes posts et les posts des gens que tu follow apparaissent.
 - On peut **cliquer les pseudo pour voir leur profil**.
-- Les posts t'appartenant peuvent être modifiés ou supprimés en déplacant la souris sur les **...**, ce qui affhiche les 2 boutons : ![deletemain](https://user-images.githubusercontent.com/95492416/234606682-4ab9f578-47fe-467a-89af-2f1ba7084de4.png)
+- Les posts t'appartenant peuvent être modifiés ou supprimés en déplacant la souris sur les **...**, ce qui affiche les 2 boutons : ![deletemain](https://user-images.githubusercontent.com/95492416/234606682-4ab9f578-47fe-467a-89af-2f1ba7084de4.png)
 
 ### recherche de profil (search_profile.php) :
 
@@ -141,7 +141,7 @@ La page classement permet aux joueurs de se comparer sur différents jeux et sur
 
 - Si on a beaucoup d'amis, on peut rechercher de manière dynamique un amis.
 - Tous les messages d'une conversation sont affichés et on peut scroll dans les messages.
-- On peut cliquer sur le pseudo dans la conversation pour être rediregier vers son profile.
+- On peut cliquer sur le pseudo dans la conversation pour être rediriger vers son profil.
 - On a système de notification qui check toutes les 2s et si t'es en conversation avec la personne, met à jour automatiquement les messages sinon affiche une cloche à côté du pseudo en question :  ![notif](https://user-images.githubusercontent.com/95492416/234623546-bef315f4-5633-45ac-b2d5-d128fff1046b.png)
 
 ### profil (profil.php) :
@@ -150,4 +150,4 @@ La page classement permet aux joueurs de se comparer sur différents jeux et sur
 
 ## Conclusion :
 
-Ce projet nous aura été hyper enrichissant pour découvrir les bases du web tel que le fonctionnement du PHP, JS, Ajax, CSS, SQL. On a vraiment pu réaliser un site complet, fonctionnel et ergonomique, ce qui nous permettra d'avoir un projet concret et solide en WEB.
+Ce projet nous aura été hyper enrichissant pour découvrir les bases du web tel que le fonctionnement du PHP, JS, Ajax, CSS, SQL. On a vraiment pu réaliser un site complet, fonctionnel et ergonomique, ce qui nous permettra d'avoir un projet concret et solide en WEB pour l'avenir.
