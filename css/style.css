@@ -1,3 +1,36 @@
+/*
+    Commentaire principal relatif au CSS :
+
+    Rappel :
+
+        - Osman s'est inspiré de 2 vidéos completement différentes donc même
+        si ce n'est pas 100% optimisé, nous avons 2 css distincts : celui là et signup.css.
+
+    Structure : 
+
+        - style.css
+
+            - tweet-box.css
+
+            - left-sidebar.css
+
+            - right-sidebar.css
+
+            - messages.css
+
+            - profile.css
+
+            - classement.css
+
+        - signup.css
+
+    A noter :
+
+        
+*/
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 @import "tweet-box.css";
 @import "left-sidebar.css";

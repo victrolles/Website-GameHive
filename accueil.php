@@ -1,3 +1,71 @@
+<!--
+    Commentaire principale du projet :
+
+    fichiers contenant des commentaires :
+
+        - style.css
+
+
+    Dossier :
+
+        - Le dossier CSS contient le main fichier CSS "style.css" et les différents fichiers CSS contiennent le CSS spécifique à leur page.
+
+        - Le dossier images contient toutes les images avec des sous-dossiers pour les images upload par l'utilisateur.
+
+        - Le dossier javascript contient principalement du AJAX utilisé pour la messagerie et les bar de recherche.
+
+        - Le dossier PHP contient soit des pages de redirection soit des pages appelées par les pages principales par des "ajax", "require_once" et "include".
+
+
+    Points importants :
+
+        - database.php :
+
+            - Le fichier "php/database.php" reprend le votre et stocke la grande majorité des functions demandant des requêtes SQL,
+            ce qui permet de rendre plus lisible les autres fichiers php qui servent d'afficher dans le site.
+            Il n'est donc pas très lisible car nous n'avons pas mis de classe
+
+        - header.php :
+
+            - Le charset est défini en UTF-8
+
+            - Le titre et l'icone ont été implémenté
+
+            - On utilise les icons de "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+
+            - On utilise les polices Poppins et Roboto
+
+       
+    Variables globales :
+
+        Cookie :
+
+            Utilisé uniquement pour le stocker le login de l'utilisateur :
+            - "pseudo"
+            - "encrypt_password"
+
+        Session :
+
+            Utilisé uniquement dans la messagerie pour se connecter à quelqu'un
+            - "id_friend"
+
+
+    A noter :
+
+        - Une fonction "CheckLogin()" check systématiquement en début des pages WEB si le pseudo et le password correspondent.
+
+        - Une fonction pré-faite "mysqli_real_escape_string()" permet d'éviter les problèmes aves les accents et les apostrophes.
+
+        - Le mot de passe est crypté en mb5
+
+        - Les images sont identifiées avec un code unique créé par "uniqid()"
+
+        - Dès que le lien d'un photo est supprimer de la bdd, la photo est supprimer grace à "unlink()"
+
+
+
+ -->
+
 <?php
 
 include "php/database.php";
