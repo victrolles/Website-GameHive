@@ -2,6 +2,16 @@
 
 ![avatar (1)](https://user-images.githubusercontent.com/95492416/234552592-4f870a63-913d-45a4-8575-368a87474904.png)
 
+## Important:
+
+Avant tout, il est fortement conseillé de lire le README sur GitHub pour avoir les images et la mise en forme. Cependant si ce n'est pas possible, ce n'est pas grave car ce sont surtout des illustrations mais le lien de chaque image pourrait réduire la lisibilité et la compréhension.
+
+Lien README: https://github.com/victrolles/Website-GameHive/blob/main/README.md
+
+Le projet est save sur GitHub en Public :
+
+Lien Projet : https://github.com/victrolles/Website-GameHive
+
 ## Introduction :
 
 En lien avec l'UV WE4A, nous avons réalisé un **réseau social** sur le thème des **jeux vidéos**.
