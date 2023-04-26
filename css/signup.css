@@ -1,3 +1,9 @@
+:root{
+    --twitter-color: #cbd81c;
+    --twitter-background: #e6ecf0;
+    --twitter-text-color: rgb(209, 196, 15);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -86,12 +92,15 @@ body {
 }
 
 .field.button input[type="submit"] {
-    /* background-color: #1da1f2; */
     background-color:var(--twitter-text-color);
     color: #fff;
     font-weight: 600;
     cursor: pointer;
 }
+
+/*.signup.field.button input[type="submit"] {
+    background-color: #1da1f2;
+}*/
 
 .link {
     margin-top: 20px;

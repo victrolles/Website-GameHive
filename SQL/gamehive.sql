@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2023 at 03:55 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Apr 26, 2023 at 11:56 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `gamehive`
 --
+CREATE DATABASE IF NOT EXISTS `gamehive` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `gamehive`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `badge`
 --
 
+DROP TABLE IF EXISTS `badge`;
 CREATE TABLE `badge` (
   `id` int(11) NOT NULL,
   `image` varchar(200) NOT NULL,
@@ -51,6 +54,7 @@ INSERT INTO `badge` (`id`, `image`, `description`, `id_game`) VALUES
 -- Table structure for table `classement`
 --
 
+DROP TABLE IF EXISTS `classement`;
 CREATE TABLE `classement` (
   `id` int(11) NOT NULL,
   `id_profil` int(11) NOT NULL,
@@ -120,6 +124,7 @@ INSERT INTO `classement` (`id`, `id_profil`, `id_gamemode`, `score`) VALUES
 -- Table structure for table `follow`
 --
 
+DROP TABLE IF EXISTS `follow`;
 CREATE TABLE `follow` (
   `id` int(11) NOT NULL,
   `id_follower` int(11) NOT NULL,
@@ -131,7 +136,6 @@ CREATE TABLE `follow` (
 --
 
 INSERT INTO `follow` (`id`, `id_follower`, `id_followed`) VALUES
-(6, 1, 2),
 (7, 2, 1),
 (14, 1, 3),
 (15, 1, 5),
@@ -144,7 +148,15 @@ INSERT INTO `follow` (`id`, `id_follower`, `id_followed`) VALUES
 (22, 7, 8),
 (23, 8, 9),
 (24, 9, 10),
-(25, 10, 6);
+(25, 10, 6),
+(26, 11, 1),
+(27, 1, 7),
+(29, 1, 6),
+(30, 1, 2),
+(31, 10, 1),
+(32, 1, 9),
+(33, 2, 7),
+(34, 2, 9);
 
 -- --------------------------------------------------------
 
@@ -152,6 +164,7 @@ INSERT INTO `follow` (`id`, `id_follower`, `id_followed`) VALUES
 -- Table structure for table `friend`
 --
 
+DROP TABLE IF EXISTS `friend`;
 CREATE TABLE `friend` (
   `id` int(11) NOT NULL,
   `id_profil1` int(11) NOT NULL,
@@ -169,7 +182,7 @@ INSERT INTO `friend` (`id`, `id_profil1`, `id_profil2`, `accepter`) VALUES
 (4, 2, 4, 1),
 (6, 2, 5, 1),
 (10, 1, 5, 0),
-(14, 2, 1, 0),
+(14, 2, 1, 1),
 (15, 3, 5, 1),
 (16, 3, 6, 0),
 (17, 4, 6, 1),
@@ -181,7 +194,12 @@ INSERT INTO `friend` (`id`, `id_profil1`, `id_profil2`, `accepter`) VALUES
 (23, 7, 9, 1),
 (24, 7, 10, 1),
 (25, 8, 10, 0),
-(26, 9, 10, 1);
+(26, 9, 10, 1),
+(27, 9, 1, 0),
+(28, 1, 7, 0),
+(29, 1, 6, 0),
+(30, 10, 1, 0),
+(31, 11, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -189,6 +207,7 @@ INSERT INTO `friend` (`id`, `id_profil1`, `id_profil2`, `accepter`) VALUES
 -- Table structure for table `game`
 --
 
+DROP TABLE IF EXISTS `game`;
 CREATE TABLE `game` (
   `id` int(11) NOT NULL,
   `nom` varchar(100) NOT NULL,
@@ -220,6 +239,7 @@ INSERT INTO `game` (`id`, `nom`, `description`) VALUES
 -- Table structure for table `gamemode`
 --
 
+DROP TABLE IF EXISTS `gamemode`;
 CREATE TABLE `gamemode` (
   `id` int(11) NOT NULL,
   `id_game` int(11) NOT NULL,
@@ -282,6 +302,7 @@ INSERT INTO `gamemode` (`id`, `id_game`, `nom`, `description`) VALUES
 -- Table structure for table `message`
 --
 
+DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
   `id` int(11) NOT NULL,
   `id_sender` int(11) NOT NULL,
@@ -327,7 +348,10 @@ INSERT INTO `message` (`id`, `id_sender`, `id_receiver`, `text`, `image`, `time`
 (143, 2, 1, 'encore', '', '2023-04-12 16:40:29', 1),
 (144, 2, 1, 'yo', '', '2023-04-13 10:48:57', 1),
 (145, 1, 2, 'yo', '../images/messages/IMG-643a7ae4cc3842.96276167.png', '2023-04-15 12:22:28', 0),
-(146, 1, 5, 'tu fais quoi ?', '../images/messages/IMG-643a8c5e2b3fc0.57991748.jpg', '2023-04-15 13:37:02', 0);
+(146, 1, 5, 'tu fais quoi ?', '../images/messages/IMG-643a8c5e2b3fc0.57991748.jpg', '2023-04-15 13:37:02', 0),
+(147, 1, 4, 'Je suis aves Esteban', '', '2023-04-17 21:23:40', 0),
+(148, 1, 2, 'Je vais voir ce que ça fait si le message est beaucoup trop trop lo,g\r\n', '', '2023-04-18 11:37:07', 0),
+(149, 1, 2, 'yo', '../images/messages/IMG-6443ec7f5c05f6.59033873.jpg', '2023-04-22 16:17:35', 0);
 
 -- --------------------------------------------------------
 
@@ -335,6 +359,7 @@ INSERT INTO `message` (`id`, `id_sender`, `id_receiver`, `text`, `image`, `time`
 -- Table structure for table `post`
 --
 
+DROP TABLE IF EXISTS `post`;
 CREATE TABLE `post` (
   `id` int(11) NOT NULL,
   `id_profil` int(11) NOT NULL,
@@ -380,7 +405,11 @@ INSERT INTO `post` (`id`, `id_profil`, `texte`, `image`, `date`) VALUES
 (50, 7, '#Valorant Jai besoin de conseils pour améliorer mon aim', '', '2023-04-15 10:20:05'),
 (51, 7, '#Fortnite Je suis à la recherche dun duo pour jouer ensemble', '', '2023-04-15 10:21:10'),
 (52, 8, '#FallGuys Trop de fun !', '', '2023-04-15 10:22:15'),
-(53, 8, '#Overwatch Je cherche une équipe pour jouer en mode arcade', '', '2023-04-15 10:23:20');
+(53, 8, '#Overwatch Je cherche une équipe pour jouer en mode arcade', '', '2023-04-15 10:23:20'),
+(54, 1, 'Je suis sur RL aves Este le goat', 'images/posts/IMG-64429edd626382.16767805.jpg', '2023-04-21 16:34:05'),
+(55, 1, 'Voici RL, je suis champ', 'images/posts/IMG-643d9d0ed01114.42793929.jpg', '2023-04-17 21:25:02'),
+(56, 9, '#LeagueOfLegends  Venez me rejoindre sur ce jeu merveilleux !', 'images/posts/IMG-6448f265d42973.71562376.jpeg', '2023-04-26 11:44:05'),
+(57, 2, '#LeagueOfLegends Je suis d\'accord avec #LucasR', '', '2023-04-26 11:46:19');
 
 -- --------------------------------------------------------
 
@@ -388,6 +417,7 @@ INSERT INTO `post` (`id`, `id_profil`, `texte`, `image`, `date`) VALUES
 -- Table structure for table `profil`
 --
 
+DROP TABLE IF EXISTS `profil`;
 CREATE TABLE `profil` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
@@ -405,7 +435,7 @@ CREATE TABLE `profil` (
 --
 
 INSERT INTO `profil` (`id`, `name`, `surname`, `pseudo`, `avatar`, `datedenaissance`, `email`, `description`, `password`) VALUES
-(1, 'Victor', 'Goudal', 'Victrolles', 'images/avatars/IMG-6439783f4b3256.51808574.jpg', '2023-04-14', 'vi.goudal@gmail.com', 'aze', '81dc9bdb52d04dc20036dbd8313ed055'),
+(1, 'Jean', 'Goudal', 'Victrolles', 'images/avatars/IMG-6439783f4b3256.51808574.jpg', '2023-04-14', 'vi.goudal@gmail.com', 'Je suis chaud en info', '81dc9bdb52d04dc20036dbd8313ed055'),
 (2, 'Osman', 'Gaygusuz', 'jaime_le_miel', 'images/avatars/IMG-6423e6d41405b0.41037408.png', '2023-03-17', 'osman.gaygusuz@gmail.com', 'je suis osman', '81dc9bdb52d04dc20036dbd8313ed055'),
 (3, 'Thomas', 'Forest', 'jaime_le_lait', 'images/avatars/IMG-6423e719065457.46313458.png', '2023-03-17', 'thomas.forest@utbm.fr', 'yo tout le monde c\'est jaime_le_lait', '81dc9bdb52d04dc20036dbd8313ed055'),
 (4, 'Alb', 'C\'estpassafe', 'Raryn', 'images/avatars/IMG-6423eb3c595862.45921802.jpg', '2002-03-01', 'Uwu@gmail.com', 'UTBMED', '82233bce59652cf3cc0eb7a03f3109d1'),
@@ -414,7 +444,9 @@ INSERT INTO `profil` (`id`, `name`, `surname`, `pseudo`, `avatar`, `datedenaissa
 (7, 'Kevin', 'Nguyen', 'kvn', 'images/avatars/IMG-643aa28200e3c8.57460457.jpeg', '2001-06-14', 'kevin.nguyen@gmail.com', 'Bonjour, je m\'appelle Kevin', '81dc9bdb52d04dc20036dbd8313ed055'),
 (8, 'Emilie', 'Dubois', 'em_dub', 'images/avatars/IMG-643aa361978293.38187037.jpeg', '1998-09-12', 'emilie.dubois@gmail.com', 'Je suis Emilie, ravie de vous rencontrer !', '81dc9bdb52d04dc20036dbd8313ed055'),
 (9, 'Lucas', 'Rousseau', 'lucasR', 'images/avatars/IMG-643aa2cac97a73.36393260.jpeg', '2002-08-05', 'lucas.rousseau@gmail.com', 'Salut tout le monde, c\'est Lucas', '81dc9bdb52d04dc20036dbd8313ed055'),
-(10, 'Alicia', 'Martin', 'alimartin', 'images/avatars/IMG-643aa2fc07dde0.02666742.jpeg', '1999-11-30', 'alicia.martin@gmail.com', 'Coucou, moi c\'est Alicia !', '81dc9bdb52d04dc20036dbd8313ed055');
+(10, 'Alicia', 'Martin', 'alimartin', 'images/avatars/IMG-643aa2fc07dde0.02666742.jpeg', '1999-11-30', 'alicia.martin@gmail.com', 'Coucou, moi c\'est Alicia !', '81dc9bdb52d04dc20036dbd8313ed055'),
+(11, 'Lucas', 'Maurer', 'jdg', 'images/avatars/IMG-643d8dba82fe80.21999854.png', '2023-04-05', 'luc.mau@gmail.com', 'J\'aime rl', '81dc9bdb52d04dc20036dbd8313ed055'),
+(12, 'Léo', 'Goudal', 'Légoduc', 'images/avatars/IMG-643e631da77d39.50268844.png', '2023-04-13', 'leo.goudal@gmail.com', 'Je cours vite', '81dc9bdb52d04dc20036dbd8313ed055');
 
 -- --------------------------------------------------------
 
@@ -422,6 +454,7 @@ INSERT INTO `profil` (`id`, `name`, `surname`, `pseudo`, `avatar`, `datedenaissa
 -- Table structure for table `unlocked_badge`
 --
 
+DROP TABLE IF EXISTS `unlocked_badge`;
 CREATE TABLE `unlocked_badge` (
   `id` int(11) NOT NULL,
   `id_profil` int(11) NOT NULL,
@@ -435,10 +468,10 @@ CREATE TABLE `unlocked_badge` (
 --
 
 INSERT INTO `unlocked_badge` (`id`, `id_profil`, `id_badge`, `selected`, `date_obtention`) VALUES
-(1, 1, 36, 0, '2023-04-06 16:01:28'),
-(2, 1, 37, 1, '2023-04-06 16:01:28'),
+(1, 1, 36, 1, '2023-04-06 16:01:28'),
+(2, 1, 37, 0, '2023-04-06 16:01:28'),
 (3, 1, 38, 1, '2023-04-06 16:01:28'),
-(4, 1, 39, 0, '2023-04-06 16:01:28');
+(4, 1, 39, 1, '2023-04-06 16:01:28');
 
 --
 -- Indexes for dumped tables
@@ -524,13 +557,13 @@ ALTER TABLE `classement`
 -- AUTO_INCREMENT for table `follow`
 --
 ALTER TABLE `follow`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `friend`
 --
 ALTER TABLE `friend`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `game`
@@ -548,19 +581,19 @@ ALTER TABLE `gamemode`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `unlocked_badge`
