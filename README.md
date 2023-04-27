@@ -33,6 +33,8 @@ Pour un design optimal, il est conseillé de l'ouvrir sur **Google Chrome** (Fir
 
 - Importer la base de données nommée **gamehive** stockée dans **GameHive->SQL->gamehive.sql**.
   (PS : le fichier **gamehive.sql** crée directement la database donc il n'est pas nécessaire de la créer avant)
+  
+- Entrer le lien **localhost/GameHive/** ou **localhost/GameHive/index.php**.
 
 - Pour voir au mieux toutes les fonctionnalités, il est conseillé de se connecter sur le compte le plus complet : 
   - Identifiant : **victrolles** 
