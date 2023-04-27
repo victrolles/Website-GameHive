@@ -12,6 +12,8 @@ Le projet est sauvegardé sur GitHub en Public :
 
 Lien Projet : https://github.com/victrolles/Website-GameHive
 
+Nous avons réalisé **3 commentaires groupés**, relative à leur langage, localisés dans les fichiers **accueil.php**, **functions.js** et **style.css**.
+
 ## Introduction :
 
 En lien avec l'UV WE4A, nous avons réalisé un **réseau social** sur le thème des **jeux vidéos**.
