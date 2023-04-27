@@ -26,7 +26,29 @@
 
     A noter :
 
-        
+        - 3 variables sont utilisées pour les couleurs.
+
+        - nous avons suivis une vidéo pour la réalisation de style.css, tweet-box.css,
+        left-sidebar.css, right-sidebar.css et donc pour la structure récurrente :
+
+            grid-container
+                left-sidebar
+                main
+                    page__title
+                    ...
+                right-sidebar
+
+        - Nous avons réutiliser plusieurs fois des mises en forme de la page d'accueil
+        (accueil.php) comme par exemple pour la search bar ou la tweet-box ainsi ainsi dans certain
+        PHP comme messagerie la class tweet-box est utilisé pour la mise en forme.
+
+        - Nous avons utilisé des dropdown à plusieurs endroits comme pour faire apparaître 
+        les boutons modify et delete ou les badges disponible pour modifier.
+
+        - Flex a été utilisé de nombreuses fois pour séparer une division en 2 ou plusieurs suivants l'axe horizontal.
+
+        - Pos: sticky a été utilisé pour laisser les sidebars et le titre statique.
+
 */
 
 

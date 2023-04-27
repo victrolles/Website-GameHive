@@ -3,7 +3,9 @@
 
     fichiers contenant des commentaires :
 
-        - style.css
+        - css -> style.css
+
+        - javascript -> functions.js
 
 
     Dossier :
@@ -14,14 +16,14 @@
 
         - Le dossier javascript contient principalement du AJAX utilisé pour la messagerie et les bar de recherche.
 
-        - Le dossier PHP contient soit des pages de redirection soit des pages appelées par les pages principales par des "ajax", "require_once" et "include".
+        - Le dossier PHP contient soit des pages de redirection soit des pages appelées par les pages principales grâce à "ajax", "require_once" ou "include".
 
 
     Points importants :
 
         - database.php :
 
-            - Le fichier "php/database.php" reprend le votre et stocke la grande majorité des functions demandant des requêtes SQL,
+            - Le fichier "php/database.php" reprend le votre et stocke la grande majorité des fonctions demandant des requêtes SQL,
             ce qui permet de rendre plus lisible les autres fichiers php qui servent d'afficher dans le site.
             Il n'est donc pas très lisible car nous n'avons pas mis de classe
 
@@ -61,6 +63,8 @@
         - Les images sont identifiées avec un code unique créé par "uniqid()"
 
         - Dès que le lien d'un photo est supprimer de la bdd, la photo est supprimer grace à "unlink()"
+
+        - Les requêtes SQL ont été fait par nous même, noatamment grâce à l'UV SI40.
 
 
 

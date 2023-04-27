@@ -1,3 +1,14 @@
+// Commentaire principal relatif au Javascript
+//
+// A noter :
+//
+//    - On utilise javascript principalement pour AJAX avec des XMLHttpRequest().
+//
+//    - On a aussi utilisé javascript avec des Listeners pour éviter de utiliser des forms
+//    et donc devoir créer une page intermédiaire pour éviter de renvoyer le formulaire si on reload la page.
+//
+//    - Javascript nous aura donc été utile pour améliorer le dynamisme et l'ergonomie des pages.
+
 function connectToFriend(id_friend) {
   
   // Send an AJAX request to execute the ConnectFriend function with the given id_friend
