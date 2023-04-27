@@ -98,3 +98,7 @@ border: none;
     top: 0;
     height: 100vh;
 }
+
+.messagerie .page__title{
+    background-color: #f8f8f8;
+}

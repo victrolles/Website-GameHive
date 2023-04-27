@@ -165,7 +165,7 @@ textarea{
     font-size: 20px;
     padding: 15px 20px;
     border-bottom: 1px solid var(--twitter-background);
-    /* background-color: #fff; */
+    background-color: #fff;
     position: sticky;
     top: 0;
     z-index: 999;
