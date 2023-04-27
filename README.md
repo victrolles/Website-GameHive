@@ -50,9 +50,10 @@ Pour un design optimal, il est conseillé de l'ouvrir sur **Google Chrome** (Fir
 
 ### Inspiration :
 
-Nous nous sommes inspirés de 2 vidéos pour le CSS du site :
-- **Osman : TODO**
-- **Osman : TODO**
+En plus du site Twitter, nous nous sommes inspirés de 2 vidéos pour le CSS du site  :
+- Premièrement pour la page **index**, je (Osman GAYGUSUZ) me suis aidé de cette vidéo (https://www.youtube.com/watch?v=AhUIKhDbGCQ&t=51s&ab_channel=CodeAddict) afin d'avoir une base solide pour le developpement du site pour la partie **HTML et CSS**. J'ai appris à organiser le developpement de notre site en séparant les différentes fonctionnalités en différents fichiers et decouvert de nouvelles techniques pour coder plus rapidement.
+- Deuxièmement pour la page **accueil**, je me suis inspiré de la page d'accueil de Facebook et de cette vidéo (https://www.youtube.com/watch?v=Se-P0ZK7sb4&t=24s&ab_channel=LightCode)
+-Enfin je me suis inspiré du site **Twitter** pour réaliser le **CSS des pages login.php et signup.php** que nous avons utilisé pour **toutes les autres pages**.
 
 ### Aides complémentaires :
 
