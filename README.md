@@ -28,13 +28,21 @@ Pour un design optimal, il est conseillé de l'ouvrir sur **Google Chrome** (Fir
 
 ### Instructions :
 
-- Mettre le dossier **GameHive** à l'emplacement dédié du serveur local.
+- Mettre le dossier **GOUDAL_GAYGUSUZ** à l'emplacement dédié du serveur local.
   (PS : nous avons utilisé **XAMPP** donc nous l'avions mis dans **htdocs**)
 
-- Importer la base de données nommée **gamehive** stockée dans **GameHive->SQL->gamehive.sql**.
+- Importer la base de données nommée **gamehive** stockée dans **GOUDAL_GAYGUSUZ->SQL->gamehive.sql**.
   (PS : le fichier **gamehive.sql** crée directement la database donc il n'est pas nécessaire de la créer avant)
-  
-- Entrer le lien **localhost/GameHive/** ou **localhost/GameHive/index.php**.
+
+- SQL : Server version: 10.4.28-MariaDB.
+
+- PHP : PHP version: 8.0.28
+
+- Sur **XAMPP**, nous avons **$username = "root";,  $password = "";**. Il est possible de modifier ces informations si vous utilisez un autre serveur local **GOUDAL_GAYGUSUZ->PHP->database.php->(1ère fonction : ConnectDatabase())**.
+
+- Nous avons déménagé le site sur un ordinateur de l'UTBM avec XAMPP et tout est fonctionnel.
+
+- La première page à consulter est **index.php**.
 
 - Pour voir au mieux toutes les fonctionnalités, il est conseillé de se connecter sur le compte le plus complet : 
   - Identifiant : **victrolles** 
